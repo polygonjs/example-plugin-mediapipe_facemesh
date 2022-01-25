@@ -1062,14 +1062,14 @@
 					"value": [
 						{
 							"position": {
-								"x": -1.5396494766983122,
-								"y": 1.603855703840928,
-								"z": -1.08053569116957
+								"x": -1.603655571724301,
+								"y": 1.4582450343139122,
+								"z": -0.7035349071936177
 							},
 							"direction": {
-								"x": -0.11999472912948386,
-								"y": 0.12350712022642851,
-								"z": -0.9850620570474311
+								"x": -0.5064243968218294,
+								"y": -0.055558133964983825,
+								"z": -0.8604926635677815
 							},
 							"color": 16777215,
 							"distance": 100,
@@ -1104,9 +1104,9 @@
 					"value": [
 						{
 							"direction": {
-								"x": 3.4694469519536134e-18,
-								"y": 0.9922313964526814,
-								"z": 0.1244060122886426
+								"x": -1.0408340855860841e-17,
+								"y": 0.997922142713224,
+								"z": -0.06443133618549175
 							},
 							"skyColor": 16777215,
 							"groundColor": 0
@@ -1218,11 +1218,11 @@
 				"ramp_texture_v_POLY_ramp1_val": {
 					"value": null
 				},
-				"time": {
-					"value": 400.5038000001913
-				},
 				"v_POLY_texture1_texture1": {
 					"value": null
+				},
+				"time": {
+					"value": 14.513100000023853
 				}
 			},
 			"defines": {
@@ -1358,11 +1358,11 @@
 					"ramp_texture_v_POLY_ramp1_val": {
 						"value": null
 					},
-					"time": {
-						"value": 400.5038000001913
-					},
 					"v_POLY_texture1_texture1": {
 						"value": null
+					},
+					"time": {
+						"value": 14.513100000023853
 					}
 				},
 				"defines": {
@@ -1460,11 +1460,11 @@
 					"ramp_texture_v_POLY_ramp1_val": {
 						"value": null
 					},
-					"time": {
-						"value": 400.5038000001913
-					},
 					"v_POLY_texture1_texture1": {
 						"value": null
+					},
+					"time": {
+						"value": 14.513100000023853
 					}
 				},
 				"defines": {
@@ -1516,11 +1516,11 @@
 					"ramp_texture_v_POLY_ramp1_val": {
 						"value": null
 					},
-					"time": {
-						"value": 400.5038000001913
-					},
 					"v_POLY_texture1_texture1": {
 						"value": null
+					},
+					"time": {
+						"value": 14.513100000023853
 					}
 				},
 				"vertexShader": "#include <common>\n\nvarying float vViewZDepth;\n\n// INSERT DEFINES\n\n\n\n// /geo1/MAT/meshPhysicalBuilder3/globals1\nuniform float time;\n\n// /geo1/MAT/meshPhysicalBuilder3/attribute1\nvarying vec3 varying_v_POLY_attribute1_val;\n\n// /geo1/MAT/meshPhysicalBuilder3/globals1\nvarying vec2 v_POLY_globals1_uv;\n\n// /geo1/MAT/meshPhysicalBuilder3/attribute1\nattribute vec3 restP;\n\n\n\n\n\n\n\nvoid main() {\n\n\t// INSERT BODY\n\n\n\n\t// /geo1/MAT/meshPhysicalBuilder3/attribute1\n\tvarying_v_POLY_attribute1_val = vec3(restP);\n\t\n\t// /geo1/MAT/meshPhysicalBuilder3/globals1\n\tv_POLY_globals1_uv = vec2(uv);\n\tfloat v_POLY_globals1_time = time;\n\t\n\t// /geo1/MAT/meshPhysicalBuilder3/output1\n\tvec3 transformed = position;\n\tvec3 objectNormal = normal;\n\t#ifdef USE_TANGENT\n\t\tvec3 objectTangent = vec3( tangent.xyz );\n\t#endif\n\n\n\n\n\n\t#include <project_vertex>\n\n\tvViewZDepth = - mvPosition.z;\n}",

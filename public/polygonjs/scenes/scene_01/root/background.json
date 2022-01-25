@@ -14,7 +14,7 @@
 			},
 			"inputs": [
 				"sphere1",
-				"hexagons1"
+				"transform2"
 			]
 		},
 		"hexagons1": {
@@ -57,6 +57,33 @@
 			"flags": {
 				"display": true
 			}
+		},
+		"noise1": {
+			"type": "noise",
+			"params": {
+				"amplitude": 0.45,
+				"freq": [
+					-0.10000000000000009,
+					-0.10000000000000009,
+					-0.10000000000000009
+				]
+			},
+			"inputs": [
+				"hexagons1"
+			]
+		},
+		"transform2": {
+			"type": "transform",
+			"params": {
+				"r": [
+					-23,
+					0,
+					0
+				]
+			},
+			"inputs": [
+				"noise1"
+			]
 		}
 	},
 	"flags": {

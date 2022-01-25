@@ -16,6 +16,7 @@ import {MaterialsNetworkSopNode} from '@polygonjs/polygonjs/src/engine/nodes/sop
 import {MediapipeFacemeshDeformSopNode} from '@polygonjs/plugin-mediapipe-facemesh/dist/src/engine/nodes/sop/MediapipeFacemeshDeform';
 import {MediapipeFacemeshTopologySopNode} from '@polygonjs/plugin-mediapipe-facemesh/dist/src/engine/nodes/sop/MediapipeFacemeshTopology';
 import {MergeSopNode} from '@polygonjs/polygonjs/src/engine/nodes/sop/Merge';
+import {NoiseSopNode} from '@polygonjs/polygonjs/src/engine/nodes/sop/Noise';
 import {RestAttributesSopNode} from '@polygonjs/polygonjs/src/engine/nodes/sop/RestAttributes';
 import {SphereSopNode} from '@polygonjs/polygonjs/src/engine/nodes/sop/Sphere';
 import {TransformSopNode} from '@polygonjs/polygonjs/src/engine/nodes/sop/Transform';
@@ -63,6 +64,8 @@ export class PolySceneWithNodeMap_scene_01 extends PolyScene {
 	node(path: '/background/transform1'): TransformSopNode;
 	node(path: '/background/material1'): MaterialSopNode;
 	node(path: '/background/merge1'): MergeSopNode;
+	node(path: '/background/noise1'): NoiseSopNode;
+	node(path: '/background/transform2'): TransformSopNode;
 	node(path: '/background/MAT'): MaterialsNetworkSopNode;
 	node(path: '/background/MAT/meshBasic1'): MeshBasicMatNode;
 	node(path: '/background/MAT/meshStandardBuilder1'): MeshLambertBuilderMatNode;

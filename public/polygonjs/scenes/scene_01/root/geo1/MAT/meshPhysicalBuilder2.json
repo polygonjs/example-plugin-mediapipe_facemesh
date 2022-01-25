@@ -106,7 +106,7 @@
 					"value": null
 				},
 				"flipEnvMap": {
-					"value": 1
+					"value": -1
 				},
 				"reflectivity": {
 					"value": 0.49464248686791623
@@ -180,60 +180,10 @@
 					"value": 16777215
 				},
 				"ambientLightColor": {
-					"value": [
-						0,
-						0,
-						0
-					]
+					"value": []
 				},
 				"lightProbe": {
-					"value": [
-						{
-							"x": 0,
-							"y": 0,
-							"z": 0
-						},
-						{
-							"x": 0,
-							"y": 0,
-							"z": 0
-						},
-						{
-							"x": 0,
-							"y": 0,
-							"z": 0
-						},
-						{
-							"x": 0,
-							"y": 0,
-							"z": 0
-						},
-						{
-							"x": 0,
-							"y": 0,
-							"z": 0
-						},
-						{
-							"x": 0,
-							"y": 0,
-							"z": 0
-						},
-						{
-							"x": 0,
-							"y": 0,
-							"z": 0
-						},
-						{
-							"x": 0,
-							"y": 0,
-							"z": 0
-						},
-						{
-							"x": 0,
-							"y": 0,
-							"z": 0
-						}
-					]
+					"value": []
 				},
 				"directionalLights": {
 					"value": []
@@ -248,25 +198,7 @@
 					"value": []
 				},
 				"spotLights": {
-					"value": [
-						{
-							"position": {
-								"x": -1.5396494766983122,
-								"y": 1.603855703840928,
-								"z": -1.08053569116957
-							},
-							"direction": {
-								"x": -0.11999472912948386,
-								"y": 0.12350712022642851,
-								"z": -0.9850620570474311
-							},
-							"color": 16777215,
-							"distance": 100,
-							"coneCos": 0.7071067811865476,
-							"penumbraCos": 0.7604059656000309,
-							"decay": 0.1
-						}
-					]
+					"value": []
 				},
 				"spotLightShadows": {
 					"value": []
@@ -290,17 +222,7 @@
 					"value": []
 				},
 				"hemisphereLights": {
-					"value": [
-						{
-							"direction": {
-								"x": 3.4694469519536134e-18,
-								"y": 0.9922313964526814,
-								"z": 0.1244060122886426
-							},
-							"skyColor": 16777215,
-							"groundColor": 0
-						}
-					]
+					"value": []
 				},
 				"rectAreaLights": {
 					"value": []
@@ -385,7 +307,9 @@
 					"type": "c",
 					"value": 2336018
 				},
-				"specularIntensity": {},
+				"specularIntensity": {
+					"value": 0
+				},
 				"specularIntensityMap": {
 					"value": null
 				},

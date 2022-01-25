@@ -24,6 +24,7 @@ import {InstanceSopNode} from '@polygonjs/polygonjs/dist/src/engine/nodes/sop/In
 import {MaterialSopNode} from '@polygonjs/polygonjs/dist/src/engine/nodes/sop/Material';
 import {MaterialsNetworkSopNode} from '@polygonjs/polygonjs/dist/src/engine/nodes/sop/MaterialsNetwork';
 import {MergeSopNode} from '@polygonjs/polygonjs/dist/src/engine/nodes/sop/Merge';
+import {NoiseSopNode} from '@polygonjs/polygonjs/dist/src/engine/nodes/sop/Noise';
 import {RestAttributesSopNode} from '@polygonjs/polygonjs/dist/src/engine/nodes/sop/RestAttributes';
 import {SphereSopNode} from '@polygonjs/polygonjs/dist/src/engine/nodes/sop/Sphere';
 import {TransformSopNode} from '@polygonjs/polygonjs/dist/src/engine/nodes/sop/Transform';
@@ -51,6 +52,7 @@ export const requiredImports_scene_01 = {
 		MaterialSopNode,
 		MaterialsNetworkSopNode,
 		MergeSopNode,
+		NoiseSopNode,
 		RestAttributesSopNode,
 		SphereSopNode,
 		TransformSopNode

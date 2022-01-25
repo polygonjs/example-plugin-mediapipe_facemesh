@@ -12,10 +12,7 @@
 			},
 			"inputs": [
 				"material1"
-			],
-			"flags": {
-				"display": true
-			}
+			]
 		},
 		"material1": {
 			"type": "material",
@@ -81,7 +78,10 @@
 			},
 			"inputs": [
 				"material3"
-			]
+			],
+			"flags": {
+				"display": true
+			}
 		},
 		"material3": {
 			"type": "material",
@@ -97,7 +97,7 @@
 			"params": {
 				"applyOn": 1,
 				"t": [
-					0.4079114827159983,
+					0.2079114827159983,
 					0,
 					-0.09667492037797797
 				],
