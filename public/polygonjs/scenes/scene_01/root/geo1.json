@@ -1,0 +1,124 @@
+{
+	"type": "geo",
+	"nodes": {
+		"mediapipeFacemeshTopology1": {
+			"type": "mediapipeFacemeshTopology"
+		},
+		"mediapipeFacemeshDeform1": {
+			"type": "mediapipeFacemeshDeform",
+			"params": {
+				"source": "../COP/webCam1",
+				"smoothFactor": 0.41
+			},
+			"inputs": [
+				"material1"
+			],
+			"flags": {
+				"display": true
+			}
+		},
+		"material1": {
+			"type": "material",
+			"params": {
+				"material": "../MAT/meshPhysicalBuilder1"
+			},
+			"inputs": [
+				"mediapipeFacemeshTopology1"
+			]
+		},
+		"mediapipeFacemeshDeform2": {
+			"type": "mediapipeFacemeshDeform",
+			"params": {
+				"source": "../COP/webCam1",
+				"smoothFactor": 0.41
+			},
+			"inputs": [
+				"material2"
+			]
+		},
+		"material2": {
+			"type": "material",
+			"params": {
+				"material": "../MAT/meshPhysicalBuilder2"
+			},
+			"inputs": [
+				"transform1"
+			]
+		},
+		"transform1": {
+			"type": "transform",
+			"params": {
+				"applyOn": 1,
+				"t": [
+					-0.34,
+					0,
+					0.35794395075195906
+				],
+				"r": [
+					0,
+					27,
+					0
+				]
+			},
+			"inputs": [
+				"mediapipeFacemeshTopology1"
+			]
+		},
+		"merge1": {
+			"type": "merge",
+			"inputs": [
+				"mediapipeFacemeshDeform3",
+				"mediapipeFacemeshDeform1",
+				"mediapipeFacemeshDeform2"
+			],
+			"cloned_state_overriden": true
+		},
+		"mediapipeFacemeshDeform3": {
+			"type": "mediapipeFacemeshDeform",
+			"params": {
+				"source": "../COP/webCam1",
+				"smoothFactor": 0.41
+			},
+			"inputs": [
+				"material3"
+			]
+		},
+		"material3": {
+			"type": "material",
+			"params": {
+				"material": "../MAT/meshPhysicalBuilder3"
+			},
+			"inputs": [
+				"transform2"
+			]
+		},
+		"transform2": {
+			"type": "transform",
+			"params": {
+				"applyOn": 1,
+				"t": [
+					0.4079114827159983,
+					0,
+					-0.09667492037797797
+				],
+				"r": [
+					0,
+					-27,
+					0
+				]
+			},
+			"inputs": [
+				"restAttributes1"
+			]
+		},
+		"restAttributes1": {
+			"type": "restAttributes",
+			"inputs": [
+				"mediapipeFacemeshTopology1"
+			]
+		}
+	},
+	"flags": {
+		"display": true
+	}
+}

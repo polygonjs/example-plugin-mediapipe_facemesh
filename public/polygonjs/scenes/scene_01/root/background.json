@@ -1,0 +1,65 @@
+{
+	"type": "geo",
+	"nodes": {
+		"sphere1": {
+			"type": "sphere",
+			"params": {
+				"radius": 0.18
+			}
+		},
+		"instance1": {
+			"type": "instance",
+			"params": {
+				"material": "../MAT/meshStandardBuilder1"
+			},
+			"inputs": [
+				"sphere1",
+				"hexagons1"
+			]
+		},
+		"hexagons1": {
+			"type": "hexagons",
+			"params": {
+				"size": [
+					11,
+					11
+				],
+				"hexagonRadius": 0.55045
+			}
+		},
+		"sphere2": {
+			"type": "sphere"
+		},
+		"transform1": {
+			"type": "transform",
+			"params": {
+				"scale": 10
+			},
+			"inputs": [
+				"sphere2"
+			]
+		},
+		"material1": {
+			"type": "material",
+			"params": {
+				"material": "../MAT/meshBasic1"
+			},
+			"inputs": [
+				"transform1"
+			]
+		},
+		"merge1": {
+			"type": "merge",
+			"inputs": [
+				"instance1",
+				"material1"
+			],
+			"flags": {
+				"display": true
+			}
+		}
+	},
+	"flags": {
+		"display": true
+	}
+}

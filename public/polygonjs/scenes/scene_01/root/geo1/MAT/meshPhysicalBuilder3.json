@@ -1,0 +1,1533 @@
+{
+	"type": "meshPhysicalBuilder",
+	"nodes": {
+		"globals1": {
+			"type": "globals"
+		},
+		"output1": {
+			"type": "output",
+			"inputs": [
+				null,
+				null,
+				{
+					"index": 2,
+					"node": "mult1",
+					"output": "product"
+				}
+			]
+		},
+		"noise1": {
+			"type": "noise",
+			"params": {
+				"outputType": 1,
+				"octaves": 8,
+				"amp": {
+					"type": "float",
+					"default_value": 1,
+					"options": {
+						"spare": true
+					}
+				},
+				"position": {
+					"type": "vector3",
+					"default_value": [
+						0,
+						0,
+						0
+					],
+					"options": {
+						"spare": true
+					}
+				},
+				"freq": {
+					"type": "vector3",
+					"default_value": [
+						1,
+						1,
+						1
+					],
+					"options": {
+						"spare": true
+					}
+				},
+				"offset": {
+					"type": "vector3",
+					"default_value": [
+						0,
+						0,
+						0
+					],
+					"options": {
+						"spare": true
+					},
+					"raw_input": [
+						0,
+						-3.4,
+						0
+					]
+				}
+			},
+			"maxInputsCount": 4,
+			"inputs": [
+				null,
+				{
+					"index": 1,
+					"node": "add1",
+					"output": "sum"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "amp",
+						"type": "float"
+					},
+					{
+						"name": "position",
+						"type": "vec3"
+					},
+					{
+						"name": "freq",
+						"type": "vec3"
+					},
+					{
+						"name": "offset",
+						"type": "vec3"
+					}
+				],
+				"out": [
+					{
+						"name": "noise",
+						"type": "float"
+					}
+				]
+			}
+		},
+		"attribute1": {
+			"type": "attribute",
+			"params": {
+				"name": "restP",
+				"type": 2
+			},
+			"connection_points": {
+				"in": [],
+				"out": [
+					{
+						"name": "val",
+						"type": "vec3"
+					}
+				]
+			}
+		},
+		"multAdd1": {
+			"type": "multAdd",
+			"params": {
+				"value": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true
+					}
+				},
+				"preAdd": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true
+					}
+				},
+				"mult": {
+					"type": "float",
+					"default_value": 1,
+					"options": {
+						"spare": true
+					},
+					"raw_input": 0.11
+				},
+				"postAdd": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true
+					}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"node": "globals1",
+					"output": "time"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "value",
+						"type": "float"
+					},
+					{
+						"name": "preAdd",
+						"type": "float"
+					},
+					{
+						"name": "mult",
+						"type": "float"
+					},
+					{
+						"name": "postAdd",
+						"type": "float"
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "float"
+					}
+				]
+			}
+		},
+		"floatToVec3_1": {
+			"type": "floatToVec3",
+			"inputs": [
+				null,
+				{
+					"index": 1,
+					"node": "multAdd1",
+					"output": "val"
+				}
+			]
+		},
+		"mix1": {
+			"type": "mix",
+			"params": {
+				"value0": {
+					"type": "vector3",
+					"default_value": [
+						0,
+						0,
+						0
+					],
+					"options": {
+						"spare": true
+					}
+				},
+				"value1": {
+					"type": "vector3",
+					"default_value": [
+						0,
+						0,
+						0
+					],
+					"options": {
+						"spare": true
+					}
+				},
+				"blend": {
+					"type": "float",
+					"default_value": 0.5,
+					"options": {
+						"spare": true
+					}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"node": "param1",
+					"output": "val"
+				},
+				{
+					"index": 1,
+					"node": "param2",
+					"output": "val"
+				},
+				{
+					"index": 2,
+					"node": "ramp1",
+					"output": "val"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "value0",
+						"type": "vec3"
+					},
+					{
+						"name": "value1",
+						"type": "vec3"
+					},
+					{
+						"name": "blend",
+						"type": "float"
+					}
+				],
+				"out": [
+					{
+						"name": "mix",
+						"type": "vec3"
+					}
+				]
+			}
+		},
+		"param1": {
+			"type": "param",
+			"params": {
+				"name": "basecolor1",
+				"type": 4,
+				"asColor": 1
+			},
+			"connection_points": {
+				"in": [],
+				"out": [
+					{
+						"name": "val",
+						"type": "vec3"
+					}
+				]
+			}
+		},
+		"param2": {
+			"type": "param",
+			"params": {
+				"name": "basecolor2",
+				"type": 4,
+				"asColor": true
+			},
+			"connection_points": {
+				"in": [],
+				"out": [
+					{
+						"name": "val",
+						"type": "vec3"
+					}
+				]
+			}
+		},
+		"abs1": {
+			"type": "abs",
+			"params": {
+				"in": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true
+					}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"node": "noise1",
+					"output": "noise"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "in",
+						"type": "float"
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "float"
+					}
+				]
+			}
+		},
+		"ramp1": {
+			"type": "ramp",
+			"params": {
+				"name": "ramp1"
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"node": "abs1",
+					"output": "val"
+				}
+			]
+		},
+		"noise2": {
+			"type": "noise",
+			"params": {
+				"outputType": 3,
+				"octaves": 8,
+				"amp": {
+					"type": "vector3",
+					"default_value": [
+						1,
+						1,
+						1
+					],
+					"options": {
+						"spare": true
+					},
+					"raw_input": [
+						-3,
+						-3,
+						-3
+					]
+				},
+				"position": {
+					"type": "vector3",
+					"default_value": [
+						0,
+						0,
+						0
+					],
+					"options": {
+						"spare": true
+					}
+				},
+				"freq": {
+					"type": "vector3",
+					"default_value": [
+						1,
+						1,
+						1
+					],
+					"options": {
+						"spare": true
+					}
+				},
+				"offset": {
+					"type": "vector3",
+					"default_value": [
+						0,
+						0,
+						0
+					],
+					"options": {
+						"spare": true
+					}
+				}
+			},
+			"maxInputsCount": 4,
+			"inputs": [
+				{
+					"index": 0,
+					"node": "floatToVec3_3",
+					"output": "vec3"
+				},
+				{
+					"index": 1,
+					"node": "attribute1",
+					"output": "val"
+				},
+				null,
+				{
+					"index": 3,
+					"node": "floatToVec3_2",
+					"output": "vec3"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "amp",
+						"type": "vec3"
+					},
+					{
+						"name": "position",
+						"type": "vec3"
+					},
+					{
+						"name": "freq",
+						"type": "vec3"
+					},
+					{
+						"name": "offset",
+						"type": "vec3"
+					}
+				],
+				"out": [
+					{
+						"name": "noise",
+						"type": "vec3"
+					}
+				]
+			}
+		},
+		"multAdd2": {
+			"type": "multAdd",
+			"params": {
+				"value": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true
+					}
+				},
+				"preAdd": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true
+					}
+				},
+				"mult": {
+					"type": "float",
+					"default_value": 1,
+					"options": {
+						"spare": true
+					},
+					"raw_input": -0.1
+				},
+				"postAdd": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true
+					}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"node": "globals1",
+					"output": "time"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "value",
+						"type": "float"
+					},
+					{
+						"name": "preAdd",
+						"type": "float"
+					},
+					{
+						"name": "mult",
+						"type": "float"
+					},
+					{
+						"name": "postAdd",
+						"type": "float"
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "float"
+					}
+				]
+			}
+		},
+		"floatToVec3_2": {
+			"type": "floatToVec3",
+			"inputs": [
+				null,
+				{
+					"index": 1,
+					"node": "multAdd2",
+					"output": "val"
+				}
+			]
+		},
+		"add1": {
+			"type": "add",
+			"params": {
+				"add0": {
+					"type": "vector3",
+					"default_value": [
+						0,
+						0,
+						0
+					],
+					"options": {
+						"spare": true
+					}
+				},
+				"add1": {
+					"type": "vector3",
+					"default_value": [
+						0,
+						0,
+						0
+					],
+					"options": {
+						"spare": true
+					}
+				},
+				"add2": {
+					"type": "vector3",
+					"default_value": [
+						0,
+						0,
+						0
+					],
+					"options": {
+						"spare": true
+					}
+				}
+			},
+			"maxInputsCount": 3,
+			"inputs": [
+				{
+					"index": 0,
+					"node": "attribute1",
+					"output": "val"
+				},
+				{
+					"index": 1,
+					"node": "noise2",
+					"output": "noise"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "add0",
+						"type": "vec3"
+					},
+					{
+						"name": "add1",
+						"type": "vec3"
+					},
+					{
+						"name": "add2",
+						"type": "vec3"
+					}
+				],
+				"out": [
+					{
+						"name": "sum",
+						"type": "vec3"
+					}
+				]
+			}
+		},
+		"constant1": {
+			"type": "constant",
+			"params": {
+				"float": 0.12
+			},
+			"connection_points": {
+				"in": [],
+				"out": [
+					{
+						"name": "val",
+						"type": "float"
+					}
+				]
+			}
+		},
+		"floatToVec3_3": {
+			"type": "floatToVec3",
+			"inputs": [
+				{
+					"index": 0,
+					"node": "constant1",
+					"output": "val"
+				},
+				{
+					"index": 1,
+					"node": "constant1",
+					"output": "val"
+				},
+				{
+					"index": 2,
+					"node": "constant1",
+					"output": "val"
+				}
+			]
+		},
+		"texture1": {
+			"type": "texture",
+			"params": {
+				"paramName": "texture1"
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"node": "globals1",
+					"output": "uv"
+				}
+			]
+		},
+		"vec4ToVec3_1": {
+			"type": "vec4ToVec3",
+			"inputs": [
+				{
+					"index": 0,
+					"node": "texture1",
+					"output": "rgba"
+				}
+			]
+		},
+		"mult1": {
+			"type": "mult",
+			"params": {
+				"mult0": {
+					"type": "vector3",
+					"default_value": [
+						1,
+						1,
+						1
+					],
+					"options": {
+						"spare": true
+					}
+				},
+				"mult1": {
+					"type": "vector3",
+					"default_value": [
+						1,
+						1,
+						1
+					],
+					"options": {
+						"spare": true
+					}
+				},
+				"mult2": {
+					"type": "vector3",
+					"default_value": [
+						1,
+						1,
+						1
+					],
+					"options": {
+						"spare": true
+					}
+				}
+			},
+			"maxInputsCount": 3,
+			"inputs": [
+				{
+					"index": 0,
+					"node": "mix1",
+					"output": "mix"
+				},
+				{
+					"index": 1,
+					"node": "vec4ToVec3_1",
+					"output": "vec3"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "mult0",
+						"type": "vec3"
+					},
+					{
+						"name": "mult1",
+						"type": "vec3"
+					},
+					{
+						"name": "mult2",
+						"type": "vec3"
+					}
+				],
+				"out": [
+					{
+						"name": "product",
+						"type": "vec3"
+					}
+				]
+			}
+		}
+	},
+	"params": {
+		"metalness": 0,
+		"roughness": 1,
+		"ior": 1.493321,
+		"thickness": 2.5,
+		"attenuationDistance": 6.4,
+		"attenuationColor": [
+			0.13725490196078433,
+			0.6470588235294118,
+			0.07058823529411765
+		],
+		"basecolor1": {
+			"type": "color",
+			"default_value": [
+				0,
+				0,
+				0
+			],
+			"options": {
+				"spare": true,
+				"computeOnDirty": true,
+				"cook": false,
+				"dependentOnFoundNode": true
+			},
+			"raw_input": [
+				1,
+				0,
+				0
+			]
+		},
+		"basecolor2": {
+			"type": "color",
+			"default_value": [
+				0,
+				0,
+				0
+			],
+			"options": {
+				"spare": true,
+				"computeOnDirty": true,
+				"cook": false,
+				"dependentOnFoundNode": true
+			}
+		},
+		"ramp1": {
+			"type": "ramp",
+			"default_value": {
+				"interpolation": "cubic",
+				"points": [
+					{
+						"position": 0,
+						"value": 0
+					},
+					{
+						"position": 1,
+						"value": 1
+					}
+				]
+			},
+			"options": {
+				"spare": true,
+				"computeOnDirty": true,
+				"cook": false,
+				"dependentOnFoundNode": true
+			},
+			"raw_input": {
+				"interpolation": "cubic",
+				"points": [
+					{
+						"position": 0,
+						"value": 0
+					},
+					{
+						"position": 0.1366044690163557,
+						"value": 0.5046875
+					},
+					{
+						"position": 1,
+						"value": 1
+					}
+				]
+			}
+		},
+		"texture1": {
+			"type": "node_path",
+			"default_value": "",
+			"options": {
+				"nodeSelection": {
+					"context": "cop"
+				},
+				"spare": true,
+				"computeOnDirty": true,
+				"cook": false,
+				"dependentOnFoundNode": true
+			},
+			"raw_input": "../../COP/webCam1"
+		}
+	},
+	"persisted_config": {
+		"material": {
+			"metadata": {
+				"version": 4.5,
+				"type": "Material",
+				"generator": "Material.toJSON"
+			},
+			"uuid": "/geo1/MAT/meshPhysicalBuilder3-main",
+			"type": "ShaderMaterial",
+			"name": "/geo1/MAT/meshPhysicalBuilder3",
+			"roughness": 1,
+			"metalness": 0,
+			"sheen": 0,
+			"specularTint": 16777215,
+			"clearcoat": 0,
+			"clearcoatRoughness": 0,
+			"envMapIntensity": 1,
+			"reflectivity": 0.49464248686791623,
+			"refractionRatio": 0.98,
+			"transmission": 0,
+			"thickness": 2.5,
+			"attenuationDistance": 6.4,
+			"attenuationTint": 2336018,
+			"depthFunc": 3,
+			"depthTest": true,
+			"depthWrite": true,
+			"colorWrite": true,
+			"stencilWrite": false,
+			"stencilWriteMask": 255,
+			"stencilFunc": 519,
+			"stencilRef": 0,
+			"stencilFuncMask": 255,
+			"stencilFail": 7680,
+			"stencilZFail": 7680,
+			"stencilZPass": 7680,
+			"glslVersion": null,
+			"uniforms": {
+				"diffuse": {
+					"type": "c",
+					"value": 16777215
+				},
+				"opacity": {
+					"value": 1
+				},
+				"map": {
+					"value": null
+				},
+				"uvTransform": {
+					"type": "m3",
+					"value": [
+						1,
+						0,
+						0,
+						0,
+						1,
+						0,
+						0,
+						0,
+						1
+					]
+				},
+				"uv2Transform": {
+					"type": "m3",
+					"value": [
+						1,
+						0,
+						0,
+						0,
+						1,
+						0,
+						0,
+						0,
+						1
+					]
+				},
+				"alphaMap": {
+					"value": null
+				},
+				"alphaTest": {
+					"value": 0
+				},
+				"envMap": {
+					"value": null
+				},
+				"flipEnvMap": {
+					"value": -1
+				},
+				"reflectivity": {
+					"value": 0.49464248686791623
+				},
+				"ior": {
+					"value": 1.493321
+				},
+				"refractionRatio": {
+					"value": 0.98
+				},
+				"maxMipLevel": {
+					"value": 0
+				},
+				"aoMap": {
+					"value": null
+				},
+				"aoMapIntensity": {
+					"value": 1
+				},
+				"lightMap": {
+					"value": null
+				},
+				"lightMapIntensity": {
+					"value": 1
+				},
+				"emissiveMap": {
+					"value": null
+				},
+				"bumpMap": {
+					"value": null
+				},
+				"bumpScale": {
+					"value": 1
+				},
+				"normalMap": {
+					"value": null
+				},
+				"normalScale": {
+					"type": "v2",
+					"value": [
+						1,
+						1
+					]
+				},
+				"displacementMap": {
+					"value": null
+				},
+				"displacementScale": {
+					"value": 1
+				},
+				"displacementBias": {
+					"value": 0
+				},
+				"roughnessMap": {
+					"value": null
+				},
+				"metalnessMap": {
+					"value": null
+				},
+				"fogDensity": {
+					"value": 0.00025
+				},
+				"fogNear": {
+					"value": 1
+				},
+				"fogFar": {
+					"value": 2000
+				},
+				"fogColor": {
+					"type": "c",
+					"value": 16777215
+				},
+				"ambientLightColor": {
+					"value": [
+						0,
+						0,
+						0
+					]
+				},
+				"lightProbe": {
+					"value": [
+						{
+							"x": 0,
+							"y": 0,
+							"z": 0
+						},
+						{
+							"x": 0,
+							"y": 0,
+							"z": 0
+						},
+						{
+							"x": 0,
+							"y": 0,
+							"z": 0
+						},
+						{
+							"x": 0,
+							"y": 0,
+							"z": 0
+						},
+						{
+							"x": 0,
+							"y": 0,
+							"z": 0
+						},
+						{
+							"x": 0,
+							"y": 0,
+							"z": 0
+						},
+						{
+							"x": 0,
+							"y": 0,
+							"z": 0
+						},
+						{
+							"x": 0,
+							"y": 0,
+							"z": 0
+						},
+						{
+							"x": 0,
+							"y": 0,
+							"z": 0
+						}
+					]
+				},
+				"directionalLights": {
+					"value": []
+				},
+				"directionalLightShadows": {
+					"value": []
+				},
+				"directionalShadowMap": {
+					"value": []
+				},
+				"directionalShadowMatrix": {
+					"value": []
+				},
+				"spotLights": {
+					"value": [
+						{
+							"position": {
+								"x": -1.5396494766983122,
+								"y": 1.603855703840928,
+								"z": -1.08053569116957
+							},
+							"direction": {
+								"x": -0.11999472912948386,
+								"y": 0.12350712022642851,
+								"z": -0.9850620570474311
+							},
+							"color": 16777215,
+							"distance": 100,
+							"coneCos": 0.7071067811865476,
+							"penumbraCos": 0.7604059656000309,
+							"decay": 0.1
+						}
+					]
+				},
+				"spotLightShadows": {
+					"value": []
+				},
+				"spotShadowMap": {
+					"value": []
+				},
+				"spotShadowMatrix": {
+					"value": []
+				},
+				"pointLights": {
+					"value": []
+				},
+				"pointLightShadows": {
+					"value": []
+				},
+				"pointShadowMap": {
+					"value": []
+				},
+				"pointShadowMatrix": {
+					"value": []
+				},
+				"hemisphereLights": {
+					"value": [
+						{
+							"direction": {
+								"x": 3.4694469519536134e-18,
+								"y": 0.9922313964526814,
+								"z": 0.1244060122886426
+							},
+							"skyColor": 16777215,
+							"groundColor": 0
+						}
+					]
+				},
+				"rectAreaLights": {
+					"value": []
+				},
+				"ltc_1": {
+					"value": null
+				},
+				"ltc_2": {
+					"value": null
+				},
+				"emissive": {
+					"type": "c",
+					"value": 0
+				},
+				"roughness": {
+					"value": 1
+				},
+				"metalness": {
+					"value": 0
+				},
+				"envMapIntensity": {
+					"value": 1
+				},
+				"clearcoat": {
+					"value": 0
+				},
+				"clearcoatMap": {
+					"value": null
+				},
+				"clearcoatRoughness": {
+					"value": 0
+				},
+				"clearcoatRoughnessMap": {
+					"value": null
+				},
+				"clearcoatNormalScale": {
+					"type": "v2",
+					"value": [
+						1,
+						1
+					]
+				},
+				"clearcoatNormalMap": {
+					"value": null
+				},
+				"sheen": {
+					"value": 0
+				},
+				"sheenTint": {
+					"type": "c",
+					"value": 0
+				},
+				"sheenRoughness": {
+					"value": 0
+				},
+				"transmission": {
+					"value": 0
+				},
+				"transmissionMap": {
+					"value": null
+				},
+				"transmissionSamplerSize": {
+					"type": "v2",
+					"value": [
+						0,
+						0
+					]
+				},
+				"transmissionSamplerMap": {
+					"value": null
+				},
+				"thickness": {
+					"value": 2.5
+				},
+				"thicknessMap": {
+					"value": null
+				},
+				"attenuationDistance": {
+					"value": 6.4
+				},
+				"attenuationTint": {
+					"type": "c",
+					"value": 2336018
+				},
+				"specularIntensity": {},
+				"specularIntensityMap": {
+					"value": null
+				},
+				"specularTint": {
+					"type": "c",
+					"value": 16777215
+				},
+				"specularTintMap": {
+					"value": null
+				},
+				"v_POLY_param1_val": {
+					"type": "c",
+					"value": 16711680
+				},
+				"v_POLY_param2_val": {
+					"type": "c",
+					"value": 0
+				},
+				"ramp_texture_v_POLY_ramp1_val": {
+					"value": null
+				},
+				"time": {
+					"value": 400.5038000001913
+				},
+				"v_POLY_texture1_texture1": {
+					"value": null
+				}
+			},
+			"defines": {
+				"PHYSICAL": true
+			},
+			"vertexShader": "\n#define STANDARD\n\nvarying vec3 vViewPosition;\n\n#ifdef USE_TRANSMISSION\n\n\tvarying vec3 vWorldPosition;\n\n#endif\n\n#include <common>\n\n\n\n// /geo1/MAT/meshPhysicalBuilder3/globals1\nuniform float time;\n\n// /geo1/MAT/meshPhysicalBuilder3/attribute1\nvarying vec3 varying_v_POLY_attribute1_val;\n\n// /geo1/MAT/meshPhysicalBuilder3/globals1\nvarying vec2 v_POLY_globals1_uv;\n\n// /geo1/MAT/meshPhysicalBuilder3/attribute1\nattribute vec3 restP;\n\n\n\n\n#include <uv_pars_vertex>\n#include <uv2_pars_vertex>\n#include <displacementmap_pars_vertex>\n#include <color_pars_vertex>\n#include <fog_pars_vertex>\n#include <normal_pars_vertex>\n#include <morphtarget_pars_vertex>\n#include <skinning_pars_vertex>\n#include <shadowmap_pars_vertex>\n#include <logdepthbuf_pars_vertex>\n#include <clipping_planes_pars_vertex>\n\nvoid main() {\n\n\t#include <uv_vertex>\n\t#include <uv2_vertex>\n\t#include <color_vertex>\n\n\n\n\t// /geo1/MAT/meshPhysicalBuilder3/attribute1\n\tvarying_v_POLY_attribute1_val = vec3(restP);\n\t\n\t// /geo1/MAT/meshPhysicalBuilder3/globals1\n\tv_POLY_globals1_uv = vec2(uv);\n\tfloat v_POLY_globals1_time = time;\n\t\n\t// /geo1/MAT/meshPhysicalBuilder3/output1\n\tvec3 transformed = position;\n\tvec3 objectNormal = normal;\n\t#ifdef USE_TANGENT\n\t\tvec3 objectTangent = vec3( tangent.xyz );\n\t#endif\n\n\n\n\n// removed:\n//\t#include <beginnormal_vertex>\n\t#include <morphnormal_vertex>\n\t#include <skinbase_vertex>\n\t#include <skinnormal_vertex>\n\t#include <defaultnormal_vertex>\n\t#include <normal_vertex>\n\n// removed:\n//\t#include <begin_vertex>\n\t#include <morphtarget_vertex>\n\t#include <skinning_vertex>\n\t#include <displacementmap_vertex>\n\t#include <project_vertex>\n\t#include <logdepthbuf_vertex>\n\t#include <clipping_planes_vertex>\n\n\tvViewPosition = - mvPosition.xyz;\n\n\t#include <worldpos_vertex>\n\t#include <shadowmap_vertex>\n\t#include <fog_vertex>\n\n#ifdef USE_TRANSMISSION\n\n\tvWorldPosition = worldPosition.xyz;\n\n#endif\n}\n",
+			"fragmentShader": "\n#define STANDARD\n\n#ifdef PHYSICAL\n\t#define IOR\n\t#define SPECULAR\n#endif\n\nuniform vec3 diffuse;\nuniform vec3 emissive;\nuniform float roughness;\nuniform float metalness;\nuniform float opacity;\n\n#ifdef IOR\n\tuniform float ior;\n#endif\n\n#ifdef SPECULAR\n\tuniform float specularIntensity;\n\tuniform vec3 specularTint;\n\n\t#ifdef USE_SPECULARINTENSITYMAP\n\t\tuniform sampler2D specularIntensityMap;\n\t#endif\n\n\t#ifdef USE_SPECULARTINTMAP\n\t\tuniform sampler2D specularTintMap;\n\t#endif\n#endif\n\n#ifdef USE_CLEARCOAT\n\tuniform float clearcoat;\n\tuniform float clearcoatRoughness;\n#endif\n\n#ifdef USE_SHEEN\n\tuniform vec3 sheenTint;\n\tuniform float sheenRoughness;\n#endif\n\nvarying vec3 vViewPosition;\n\n#include <common>\n\n\n\n// /geo1/MAT/meshPhysicalBuilder3/noise2\n// Modulo 289 without a division (only multiplications)\nfloat mod289(float x) {\n  return x - floor(x * (1.0 / 289.0)) * 289.0;\n}\nvec2 mod289(vec2 x) {\n  return x - floor(x * (1.0 / 289.0)) * 289.0;\n}\nvec3 mod289(vec3 x) {\n  return x - floor(x * (1.0 / 289.0)) * 289.0;\n}\nvec4 mod289(vec4 x) {\n  return x - floor(x * (1.0 / 289.0)) * 289.0;\n}\n// Modulo 7 without a division\nvec3 mod7(vec3 x) {\n  return x - floor(x * (1.0 / 7.0)) * 7.0;\n}\n\n// Permutation polynomial: (34x^2 + x) mod 289\nfloat permute(float x) {\n     return mod289(((x*34.0)+1.0)*x);\n}\nvec3 permute(vec3 x) {\n  return mod289((34.0 * x + 1.0) * x);\n}\nvec4 permute(vec4 x) {\n     return mod289(((x*34.0)+1.0)*x);\n}\n\nfloat taylorInvSqrt(float r)\n{\n  return 1.79284291400159 - 0.85373472095314 * r;\n}\nvec4 taylorInvSqrt(vec4 r)\n{\n  return 1.79284291400159 - 0.85373472095314 * r;\n}\n\nvec2 fade(vec2 t) {\n  return t*t*t*(t*(t*6.0-15.0)+10.0);\n}\nvec3 fade(vec3 t) {\n  return t*t*t*(t*(t*6.0-15.0)+10.0);\n}\nvec4 fade(vec4 t) {\n  return t*t*t*(t*(t*6.0-15.0)+10.0);\n}\n//\n// Description : Array and textureless GLSL 2D/3D/4D simplex \n//               noise functions.\n//      Author : Ian McEwan, Ashima Arts.\n//  Maintainer : stegu\n//     Lastmod : 20110822 (ijm)\n//     License : Copyright (C) 2011 Ashima Arts. All rights reserved.\n//               Distributed under the MIT License. See LICENSE file.\n//               https://github.com/ashima/webgl-noise\n//               https://github.com/stegu/webgl-noise\n// \n\n\n\nfloat snoise(vec3 v)\n  { \n  const vec2  C = vec2(1.0/6.0, 1.0/3.0) ;\n  const vec4  D = vec4(0.0, 0.5, 1.0, 2.0);\n\n// First corner\n  vec3 i  = floor(v + dot(v, C.yyy) );\n  vec3 x0 =   v - i + dot(i, C.xxx) ;\n\n// Other corners\n  vec3 g = step(x0.yzx, x0.xyz);\n  vec3 l = 1.0 - g;\n  vec3 i1 = min( g.xyz, l.zxy );\n  vec3 i2 = max( g.xyz, l.zxy );\n\n  //   x0 = x0 - 0.0 + 0.0 * C.xxx;\n  //   x1 = x0 - i1  + 1.0 * C.xxx;\n  //   x2 = x0 - i2  + 2.0 * C.xxx;\n  //   x3 = x0 - 1.0 + 3.0 * C.xxx;\n  vec3 x1 = x0 - i1 + C.xxx;\n  vec3 x2 = x0 - i2 + C.yyy; // 2.0*C.x = 1/3 = C.y\n  vec3 x3 = x0 - D.yyy;      // -1.0+3.0*C.x = -0.5 = -D.y\n\n// Permutations\n  i = mod289(i); \n  vec4 p = permute( permute( permute( \n             i.z + vec4(0.0, i1.z, i2.z, 1.0 ))\n           + i.y + vec4(0.0, i1.y, i2.y, 1.0 )) \n           + i.x + vec4(0.0, i1.x, i2.x, 1.0 ));\n\n// Gradients: 7x7 points over a square, mapped onto an octahedron.\n// The ring size 17*17 = 289 is close to a multiple of 49 (49*6 = 294)\n  float n_ = 0.142857142857; // 1.0/7.0\n  vec3  ns = n_ * D.wyz - D.xzx;\n\n  vec4 j = p - 49.0 * floor(p * ns.z * ns.z);  //  mod(p,7*7)\n\n  vec4 x_ = floor(j * ns.z);\n  vec4 y_ = floor(j - 7.0 * x_ );    // mod(j,N)\n\n  vec4 x = x_ *ns.x + ns.yyyy;\n  vec4 y = y_ *ns.x + ns.yyyy;\n  vec4 h = 1.0 - abs(x) - abs(y);\n\n  vec4 b0 = vec4( x.xy, y.xy );\n  vec4 b1 = vec4( x.zw, y.zw );\n\n  //vec4 s0 = vec4(lessThan(b0,0.0))*2.0 - 1.0;\n  //vec4 s1 = vec4(lessThan(b1,0.0))*2.0 - 1.0;\n  vec4 s0 = floor(b0)*2.0 + 1.0;\n  vec4 s1 = floor(b1)*2.0 + 1.0;\n  vec4 sh = -step(h, vec4(0.0));\n\n  vec4 a0 = b0.xzyw + s0.xzyw*sh.xxyy ;\n  vec4 a1 = b1.xzyw + s1.xzyw*sh.zzww ;\n\n  vec3 p0 = vec3(a0.xy,h.x);\n  vec3 p1 = vec3(a0.zw,h.y);\n  vec3 p2 = vec3(a1.xy,h.z);\n  vec3 p3 = vec3(a1.zw,h.w);\n\n//Normalise gradients\n  vec4 norm = taylorInvSqrt(vec4(dot(p0,p0), dot(p1,p1), dot(p2, p2), dot(p3,p3)));\n  p0 *= norm.x;\n  p1 *= norm.y;\n  p2 *= norm.z;\n  p3 *= norm.w;\n\n// Mix final noise value\n  vec4 m = max(0.6 - vec4(dot(x0,x0), dot(x1,x1), dot(x2,x2), dot(x3,x3)), 0.0);\n  m = m * m;\n  return 42.0 * dot( m*m, vec4( dot(p0,x0), dot(p1,x1), \n                                dot(p2,x2), dot(p3,x3) ) );\n  }\n\n\nfloat fbm_snoise_noise2 (in vec3 st) {\n\tfloat value = 0.0;\n\tfloat amplitude = 1.0;\n\tfor (int i = 0; i < 8; i++) {\n\t\tvalue += amplitude * snoise(st);\n\t\tst *= 2.0;\n\t\tamplitude *= 0.5;\n\t}\n\treturn value;\n}\n\n\n// /geo1/MAT/meshPhysicalBuilder3/noise1\n\nfloat fbm_snoise_noise1 (in vec3 st) {\n\tfloat value = 0.0;\n\tfloat amplitude = 1.0;\n\tfor (int i = 0; i < 8; i++) {\n\t\tvalue += amplitude * snoise(st);\n\t\tst *= 2.0;\n\t\tamplitude *= 0.5;\n\t}\n\treturn value;\n}\n\n\n\n\n\n\n\n\n// /geo1/MAT/meshPhysicalBuilder3/param1\nuniform vec3 v_POLY_param1_val;\n\n// /geo1/MAT/meshPhysicalBuilder3/param2\nuniform vec3 v_POLY_param2_val;\n\n// /geo1/MAT/meshPhysicalBuilder3/globals1\nuniform float time;\n\n// /geo1/MAT/meshPhysicalBuilder3/texture1\nuniform sampler2D v_POLY_texture1_texture1;\n\n// /geo1/MAT/meshPhysicalBuilder3/ramp1\nuniform sampler2D ramp_texture_v_POLY_ramp1_val;\n\n// /geo1/MAT/meshPhysicalBuilder3/attribute1\nvarying vec3 varying_v_POLY_attribute1_val;\n\n// /geo1/MAT/meshPhysicalBuilder3/globals1\nvarying vec2 v_POLY_globals1_uv;\n\n\n\n\n#include <packing>\n#include <dithering_pars_fragment>\n#include <color_pars_fragment>\n#include <uv_pars_fragment>\n#include <uv2_pars_fragment>\n#include <map_pars_fragment>\n#include <alphamap_pars_fragment>\n#include <alphatest_pars_fragment>\n#include <aomap_pars_fragment>\n#include <lightmap_pars_fragment>\n#include <emissivemap_pars_fragment>\n#include <bsdfs>\n#include <cube_uv_reflection_fragment>\n#include <envmap_common_pars_fragment>\n#include <envmap_physical_pars_fragment>\n#include <fog_pars_fragment>\n#include <lights_pars_begin>\n#include <normal_pars_fragment>\n#include <lights_physical_pars_fragment>\n#include <transmission_pars_fragment>\n#include <shadowmap_pars_fragment>\n#include <bumpmap_pars_fragment>\n#include <normalmap_pars_fragment>\n#include <clearcoat_pars_fragment>\n#include <roughnessmap_pars_fragment>\n#include <metalnessmap_pars_fragment>\n#include <logdepthbuf_pars_fragment>\n#include <clipping_planes_pars_fragment>\n\nstruct SSSModel {\n\tbool isActive;\n\tvec3 color;\n\tfloat thickness;\n\tfloat power;\n\tfloat scale;\n\tfloat distortion;\n\tfloat ambient;\n\tfloat attenuation;\n};\n\nvoid RE_Direct_Scattering(\n\tconst in IncidentLight directLight,\n\tconst in GeometricContext geometry,\n\tconst in SSSModel sssModel,\n\tinout ReflectedLight reflectedLight\n\t){\n\tvec3 scatteringHalf = normalize(directLight.direction + (geometry.normal * sssModel.distortion));\n\tfloat scatteringDot = pow(saturate(dot(geometry.viewDir, -scatteringHalf)), sssModel.power) * sssModel.scale;\n\tvec3 scatteringIllu = (scatteringDot + sssModel.ambient) * (sssModel.color * (1.0-sssModel.thickness));\n\treflectedLight.directDiffuse += scatteringIllu * sssModel.attenuation * directLight.color;\n}\n\nvoid main() {\n\n\t#include <clipping_planes_fragment>\n\n\tvec4 diffuseColor = vec4( diffuse, opacity );\n\n\n\n\t// /geo1/MAT/meshPhysicalBuilder3/attribute1\n\tvec3 v_POLY_attribute1_val = varying_v_POLY_attribute1_val;\n\t\n\t// /geo1/MAT/meshPhysicalBuilder3/constant1\n\tfloat v_POLY_constant1_val = 0.12;\n\t\n\t// /geo1/MAT/meshPhysicalBuilder3/globals1\n\tfloat v_POLY_globals1_time = time;\n\t\n\t// /geo1/MAT/meshPhysicalBuilder3/floatToVec3_3\n\tvec3 v_POLY_floatToVec3_3_vec3 = vec3(v_POLY_constant1_val, v_POLY_constant1_val, v_POLY_constant1_val);\n\t\n\t// /geo1/MAT/meshPhysicalBuilder3/multAdd2\n\tfloat v_POLY_multAdd2_val = (-0.1*(v_POLY_globals1_time + 0.0)) + 0.0;\n\t\n\t// /geo1/MAT/meshPhysicalBuilder3/texture1\n\tvec4 v_POLY_texture1_rgba = texture2D(v_POLY_texture1_texture1, v_POLY_globals1_uv);\n\t\n\t// /geo1/MAT/meshPhysicalBuilder3/floatToVec3_2\n\tvec3 v_POLY_floatToVec3_2_vec3 = vec3(0.0, v_POLY_multAdd2_val, 0.0);\n\t\n\t// /geo1/MAT/meshPhysicalBuilder3/vec4ToVec3_1\n\tvec3 v_POLY_vec4ToVec3_1_vec3 = v_POLY_texture1_rgba.xyz;\n\t\n\t// /geo1/MAT/meshPhysicalBuilder3/noise2\n\tfloat v_POLY_noise2_noisex = (v_POLY_floatToVec3_3_vec3*fbm_snoise_noise2((v_POLY_attribute1_val*vec3(1.0, 1.0, 1.0))+(v_POLY_floatToVec3_2_vec3+vec3(0.0, 0.0, 0.0)))).x;\n\tfloat v_POLY_noise2_noisey = (v_POLY_floatToVec3_3_vec3*fbm_snoise_noise2((v_POLY_attribute1_val*vec3(1.0, 1.0, 1.0))+(v_POLY_floatToVec3_2_vec3+vec3(1000.0, 1000.0, 1000.0)))).y;\n\tfloat v_POLY_noise2_noisez = (v_POLY_floatToVec3_3_vec3*fbm_snoise_noise2((v_POLY_attribute1_val*vec3(1.0, 1.0, 1.0))+(v_POLY_floatToVec3_2_vec3+vec3(2000.0, 2000.0, 2000.0)))).z;\n\tvec3 v_POLY_noise2_noise = vec3(v_POLY_noise2_noisex, v_POLY_noise2_noisey, v_POLY_noise2_noisez);\n\t\n\t// /geo1/MAT/meshPhysicalBuilder3/add1\n\tvec3 v_POLY_add1_sum = (v_POLY_attribute1_val + v_POLY_noise2_noise + vec3(0.0, 0.0, 0.0));\n\t\n\t// /geo1/MAT/meshPhysicalBuilder3/noise1\n\tfloat v_POLY_noise1_noise = 1.0*fbm_snoise_noise1((v_POLY_add1_sum*vec3(1.0, 1.0, 1.0))+vec3(0.0, -3.4, 0.0));\n\t\n\t// /geo1/MAT/meshPhysicalBuilder3/abs1\n\tfloat v_POLY_abs1_val = abs(v_POLY_noise1_noise);\n\t\n\t// /geo1/MAT/meshPhysicalBuilder3/ramp1\n\tvec3 v_POLY_ramp1_tmpTexureVarName = texture2D(ramp_texture_v_POLY_ramp1_val, vec2(v_POLY_abs1_val, 0.0)).xyz;\n\tfloat v_POLY_ramp1_val = -1.0 + v_POLY_ramp1_tmpTexureVarName.x + v_POLY_ramp1_tmpTexureVarName.y + v_POLY_ramp1_tmpTexureVarName.z;\n\t\n\t// /geo1/MAT/meshPhysicalBuilder3/mix1\n\tvec3 v_POLY_mix1_mix = mix(v_POLY_param1_val, v_POLY_param2_val, v_POLY_ramp1_val);\n\t\n\t// /geo1/MAT/meshPhysicalBuilder3/mult1\n\tvec3 v_POLY_mult1_product = (v_POLY_mix1_mix * v_POLY_vec4ToVec3_1_vec3 * vec3(1.0, 1.0, 1.0));\n\t\n\t// /geo1/MAT/meshPhysicalBuilder3/output1\n\tdiffuseColor.xyz = v_POLY_mult1_product;\n\tfloat POLY_metalness = 1.0;\n\tfloat POLY_roughness = 1.0;\n\tvec3 POLY_emissive = vec3(1.0, 1.0, 1.0);\n\tSSSModel POLY_SSSModel = SSSModel(/*isActive*/false,/*color*/vec3(1.0, 1.0, 1.0), /*thickness*/0.1, /*power*/2.0, /*scale*/16.0, /*distortion*/0.1,/*ambient*/0.4,/*attenuation*/0.8 );\n\tfloat POLY_transmission = 1.0;\n\tfloat POLY_thickness = 1.0;\n\n\n\n\tReflectedLight reflectedLight = ReflectedLight( vec3( 0.0 ), vec3( 0.0 ), vec3( 0.0 ), vec3( 0.0 ) );\n\tvec3 totalEmissiveRadiance = emissive * POLY_emissive;\n\n\t#include <logdepthbuf_fragment>\n\t#include <map_fragment>\n\t#include <color_fragment>\n\t#include <alphamap_fragment>\n\t#include <alphatest_fragment>\n\tfloat roughnessFactor = roughness * POLY_roughness;\n\n#ifdef USE_ROUGHNESSMAP\n\n\tvec4 texelRoughness = texture2D( roughnessMap, vUv );\n\n\t// reads channel G, compatible with a combined OcclusionRoughnessMetallic (RGB) texture\n\troughnessFactor *= texelRoughness.g;\n\n#endif\n\n\tfloat metalnessFactor = metalness * POLY_metalness;\n\n#ifdef USE_METALNESSMAP\n\n\tvec4 texelMetalness = texture2D( metalnessMap, vUv );\n\n\t// reads channel B, compatible with a combined OcclusionRoughnessMetallic (RGB) texture\n\tmetalnessFactor *= texelMetalness.b;\n\n#endif\n\n\t#include <normal_fragment_begin>\n\t#include <normal_fragment_maps>\n\t#include <clearcoat_normal_fragment_begin>\n\t#include <clearcoat_normal_fragment_maps>\n\t#include <emissivemap_fragment>\n\n\t// accumulation\n\t#include <lights_physical_fragment>\n\t#include <lights_fragment_begin>\nif(POLY_SSSModel.isActive){\n\tRE_Direct_Scattering(directLight, geometry, POLY_SSSModel, reflectedLight);\n}\n\n\n\t#include <lights_fragment_maps>\n\t#include <lights_fragment_end>\n\n\t// modulation\n\t#include <aomap_fragment>\n\n\tvec3 totalDiffuse = reflectedLight.directDiffuse + reflectedLight.indirectDiffuse;\n\tvec3 totalSpecular = reflectedLight.directSpecular + reflectedLight.indirectSpecular;\n\n\t\n#ifdef USE_TRANSMISSION\n\n\tfloat transmissionAlpha = 1.0;\nfloat transmissionFactor = transmission * POLY_transmission;\nfloat thicknessFactor = thickness * POLY_thickness;\n\n\t#ifdef USE_TRANSMISSIONMAP\n\n\t\ttransmissionFactor *= texture2D( transmissionMap, vUv ).r;\n\n\t#endif\n\n\t#ifdef USE_THICKNESSMAP\n\n\t\tthicknessFactor *= texture2D( thicknessMap, vUv ).g;\n\n\t#endif\n\n\tvec3 pos = vWorldPosition;\n\tvec3 v = normalize( cameraPosition - pos );\n\tvec3 n = inverseTransformDirection( normal, viewMatrix );\n\n\tvec4 transmission = getIBLVolumeRefraction(\n\t\tn, v, roughnessFactor, material.diffuseColor, material.specularColor, material.specularF90,\n\t\tpos, modelMatrix, viewMatrix, projectionMatrix, ior, thicknessFactor,\n\t\tattenuationTint, attenuationDistance );\n\n\ttotalDiffuse = mix( totalDiffuse, transmission.rgb, transmissionFactor );\n\ttransmissionAlpha = mix( transmissionAlpha, transmission.a, transmissionFactor );\n#endif\n\n\n\tvec3 outgoingLight = totalDiffuse + totalSpecular + totalEmissiveRadiance;\n\n\t#ifdef USE_CLEARCOAT\n\n\t\tfloat dotNVcc = saturate( dot( geometry.clearcoatNormal, geometry.viewDir ) );\n\n\t\tvec3 Fcc = F_Schlick( material.clearcoatF0, material.clearcoatF90, dotNVcc );\n\n\t\toutgoingLight = outgoingLight * ( 1.0 - clearcoat * Fcc ) + clearcoatSpecular * clearcoat;\n\n\t#endif\n\n\t#include <output_fragment>\n\t#include <tonemapping_fragment>\n\t#include <encodings_fragment>\n\t#include <fog_fragment>\n\t#include <premultiplied_alpha_fragment>\n\t#include <dithering_fragment>\n\n}\n",
+			"extensions": {
+				"derivatives": true
+			},
+			"shadowSide": null,
+			"lights": true
+		},
+		"uniforms_time_dependent": true,
+		"uniforms_resolution_dependent": false,
+		"param_uniform_pairs": [
+			[
+				"basecolor1",
+				"v_POLY_param1_val"
+			],
+			[
+				"basecolor2",
+				"v_POLY_param2_val"
+			],
+			[
+				"ramp1",
+				"ramp_texture_v_POLY_ramp1_val"
+			],
+			[
+				"texture1",
+				"v_POLY_texture1_texture1"
+			]
+		],
+		"customMaterials": {
+			"customDistanceMaterial": {
+				"metadata": {
+					"version": 4.5,
+					"type": "Material",
+					"generator": "Material.toJSON"
+				},
+				"uuid": "/geo1/MAT/meshPhysicalBuilder3-customDistanceMaterial",
+				"type": "ShaderMaterial",
+				"name": "customDistanceMaterial",
+				"depthFunc": 3,
+				"depthTest": true,
+				"depthWrite": true,
+				"colorWrite": true,
+				"stencilWrite": false,
+				"stencilWriteMask": 255,
+				"stencilFunc": 519,
+				"stencilRef": 0,
+				"stencilFuncMask": 255,
+				"stencilFail": 7680,
+				"stencilZFail": 7680,
+				"stencilZPass": 7680,
+				"glslVersion": null,
+				"uniforms": {
+					"diffuse": {
+						"type": "c",
+						"value": 16777215
+					},
+					"opacity": {
+						"value": 1
+					},
+					"map": {
+						"value": null
+					},
+					"uvTransform": {
+						"type": "m3",
+						"value": [
+							1,
+							0,
+							0,
+							0,
+							1,
+							0,
+							0,
+							0,
+							1
+						]
+					},
+					"uv2Transform": {
+						"type": "m3",
+						"value": [
+							1,
+							0,
+							0,
+							0,
+							1,
+							0,
+							0,
+							0,
+							1
+						]
+					},
+					"alphaMap": {
+						"value": null
+					},
+					"alphaTest": {
+						"value": 0
+					},
+					"displacementMap": {
+						"value": null
+					},
+					"displacementScale": {
+						"value": 1
+					},
+					"displacementBias": {
+						"value": 0
+					},
+					"referencePosition": {
+						"type": "v3",
+						"value": [
+							0,
+							0,
+							0
+						]
+					},
+					"nearDistance": {
+						"value": 1
+					},
+					"farDistance": {
+						"value": 1000
+					},
+					"v_POLY_param1_val": {
+						"type": "c",
+						"value": 16711680
+					},
+					"v_POLY_param2_val": {
+						"type": "c",
+						"value": 0
+					},
+					"ramp_texture_v_POLY_ramp1_val": {
+						"value": null
+					},
+					"time": {
+						"value": 400.5038000001913
+					},
+					"v_POLY_texture1_texture1": {
+						"value": null
+					}
+				},
+				"defines": {
+					"DEPTH_PACKING": 3201
+				},
+				"vertexShader": "\n#define DISTANCE\n\nvarying vec3 vWorldPosition;\n\n#include <common>\n\n\n\n// /geo1/MAT/meshPhysicalBuilder3/globals1\nuniform float time;\n\n// /geo1/MAT/meshPhysicalBuilder3/attribute1\nvarying vec3 varying_v_POLY_attribute1_val;\n\n// /geo1/MAT/meshPhysicalBuilder3/globals1\nvarying vec2 v_POLY_globals1_uv;\n\n// /geo1/MAT/meshPhysicalBuilder3/attribute1\nattribute vec3 restP;\n\n\n\n\n#include <uv_pars_vertex>\n#include <displacementmap_pars_vertex>\n#include <morphtarget_pars_vertex>\n#include <skinning_pars_vertex>\n#include <clipping_planes_pars_vertex>\n\nvoid main() {\n\n\t#include <uv_vertex>\n\n\t#include <skinbase_vertex>\n\n\t#ifdef USE_DISPLACEMENTMAP\n\n// removed:\n//\t\t#include <beginnormal_vertex>\n\t\t#include <morphnormal_vertex>\n\t\t#include <skinnormal_vertex>\n\n\t#endif\n\n// removed:\n//\t#include <begin_vertex>\n\n\n\n\t// /geo1/MAT/meshPhysicalBuilder3/attribute1\n\tvarying_v_POLY_attribute1_val = vec3(restP);\n\t\n\t// /geo1/MAT/meshPhysicalBuilder3/globals1\n\tv_POLY_globals1_uv = vec2(uv);\n\tfloat v_POLY_globals1_time = time;\n\t\n\t// /geo1/MAT/meshPhysicalBuilder3/output1\n\tvec3 transformed = position;\n\tvec3 objectNormal = normal;\n\t#ifdef USE_TANGENT\n\t\tvec3 objectTangent = vec3( tangent.xyz );\n\t#endif\n\n\n\n\t#include <morphtarget_vertex>\n\t#include <skinning_vertex>\n\t#include <displacementmap_vertex>\n\t#include <project_vertex>\n\t#include <worldpos_vertex>\n\t#include <clipping_planes_vertex>\n\n\tvWorldPosition = worldPosition.xyz;\n\n}\n",
+				"fragmentShader": "\n#define DISTANCE\n\nuniform vec3 referencePosition;\nuniform float nearDistance;\nuniform float farDistance;\nvarying vec3 vWorldPosition;\n\n#include <common>\n\n\n\n// /geo1/MAT/meshPhysicalBuilder3/noise2\n// Modulo 289 without a division (only multiplications)\nfloat mod289(float x) {\n  return x - floor(x * (1.0 / 289.0)) * 289.0;\n}\nvec2 mod289(vec2 x) {\n  return x - floor(x * (1.0 / 289.0)) * 289.0;\n}\nvec3 mod289(vec3 x) {\n  return x - floor(x * (1.0 / 289.0)) * 289.0;\n}\nvec4 mod289(vec4 x) {\n  return x - floor(x * (1.0 / 289.0)) * 289.0;\n}\n// Modulo 7 without a division\nvec3 mod7(vec3 x) {\n  return x - floor(x * (1.0 / 7.0)) * 7.0;\n}\n\n// Permutation polynomial: (34x^2 + x) mod 289\nfloat permute(float x) {\n     return mod289(((x*34.0)+1.0)*x);\n}\nvec3 permute(vec3 x) {\n  return mod289((34.0 * x + 1.0) * x);\n}\nvec4 permute(vec4 x) {\n     return mod289(((x*34.0)+1.0)*x);\n}\n\nfloat taylorInvSqrt(float r)\n{\n  return 1.79284291400159 - 0.85373472095314 * r;\n}\nvec4 taylorInvSqrt(vec4 r)\n{\n  return 1.79284291400159 - 0.85373472095314 * r;\n}\n\nvec2 fade(vec2 t) {\n  return t*t*t*(t*(t*6.0-15.0)+10.0);\n}\nvec3 fade(vec3 t) {\n  return t*t*t*(t*(t*6.0-15.0)+10.0);\n}\nvec4 fade(vec4 t) {\n  return t*t*t*(t*(t*6.0-15.0)+10.0);\n}\n//\n// Description : Array and textureless GLSL 2D/3D/4D simplex \n//               noise functions.\n//      Author : Ian McEwan, Ashima Arts.\n//  Maintainer : stegu\n//     Lastmod : 20110822 (ijm)\n//     License : Copyright (C) 2011 Ashima Arts. All rights reserved.\n//               Distributed under the MIT License. See LICENSE file.\n//               https://github.com/ashima/webgl-noise\n//               https://github.com/stegu/webgl-noise\n// \n\n\n\nfloat snoise(vec3 v)\n  { \n  const vec2  C = vec2(1.0/6.0, 1.0/3.0) ;\n  const vec4  D = vec4(0.0, 0.5, 1.0, 2.0);\n\n// First corner\n  vec3 i  = floor(v + dot(v, C.yyy) );\n  vec3 x0 =   v - i + dot(i, C.xxx) ;\n\n// Other corners\n  vec3 g = step(x0.yzx, x0.xyz);\n  vec3 l = 1.0 - g;\n  vec3 i1 = min( g.xyz, l.zxy );\n  vec3 i2 = max( g.xyz, l.zxy );\n\n  //   x0 = x0 - 0.0 + 0.0 * C.xxx;\n  //   x1 = x0 - i1  + 1.0 * C.xxx;\n  //   x2 = x0 - i2  + 2.0 * C.xxx;\n  //   x3 = x0 - 1.0 + 3.0 * C.xxx;\n  vec3 x1 = x0 - i1 + C.xxx;\n  vec3 x2 = x0 - i2 + C.yyy; // 2.0*C.x = 1/3 = C.y\n  vec3 x3 = x0 - D.yyy;      // -1.0+3.0*C.x = -0.5 = -D.y\n\n// Permutations\n  i = mod289(i); \n  vec4 p = permute( permute( permute( \n             i.z + vec4(0.0, i1.z, i2.z, 1.0 ))\n           + i.y + vec4(0.0, i1.y, i2.y, 1.0 )) \n           + i.x + vec4(0.0, i1.x, i2.x, 1.0 ));\n\n// Gradients: 7x7 points over a square, mapped onto an octahedron.\n// The ring size 17*17 = 289 is close to a multiple of 49 (49*6 = 294)\n  float n_ = 0.142857142857; // 1.0/7.0\n  vec3  ns = n_ * D.wyz - D.xzx;\n\n  vec4 j = p - 49.0 * floor(p * ns.z * ns.z);  //  mod(p,7*7)\n\n  vec4 x_ = floor(j * ns.z);\n  vec4 y_ = floor(j - 7.0 * x_ );    // mod(j,N)\n\n  vec4 x = x_ *ns.x + ns.yyyy;\n  vec4 y = y_ *ns.x + ns.yyyy;\n  vec4 h = 1.0 - abs(x) - abs(y);\n\n  vec4 b0 = vec4( x.xy, y.xy );\n  vec4 b1 = vec4( x.zw, y.zw );\n\n  //vec4 s0 = vec4(lessThan(b0,0.0))*2.0 - 1.0;\n  //vec4 s1 = vec4(lessThan(b1,0.0))*2.0 - 1.0;\n  vec4 s0 = floor(b0)*2.0 + 1.0;\n  vec4 s1 = floor(b1)*2.0 + 1.0;\n  vec4 sh = -step(h, vec4(0.0));\n\n  vec4 a0 = b0.xzyw + s0.xzyw*sh.xxyy ;\n  vec4 a1 = b1.xzyw + s1.xzyw*sh.zzww ;\n\n  vec3 p0 = vec3(a0.xy,h.x);\n  vec3 p1 = vec3(a0.zw,h.y);\n  vec3 p2 = vec3(a1.xy,h.z);\n  vec3 p3 = vec3(a1.zw,h.w);\n\n//Normalise gradients\n  vec4 norm = taylorInvSqrt(vec4(dot(p0,p0), dot(p1,p1), dot(p2, p2), dot(p3,p3)));\n  p0 *= norm.x;\n  p1 *= norm.y;\n  p2 *= norm.z;\n  p3 *= norm.w;\n\n// Mix final noise value\n  vec4 m = max(0.6 - vec4(dot(x0,x0), dot(x1,x1), dot(x2,x2), dot(x3,x3)), 0.0);\n  m = m * m;\n  return 42.0 * dot( m*m, vec4( dot(p0,x0), dot(p1,x1), \n                                dot(p2,x2), dot(p3,x3) ) );\n  }\n\n\nfloat fbm_snoise_noise2 (in vec3 st) {\n\tfloat value = 0.0;\n\tfloat amplitude = 1.0;\n\tfor (int i = 0; i < 8; i++) {\n\t\tvalue += amplitude * snoise(st);\n\t\tst *= 2.0;\n\t\tamplitude *= 0.5;\n\t}\n\treturn value;\n}\n\n\n// /geo1/MAT/meshPhysicalBuilder3/noise1\n\nfloat fbm_snoise_noise1 (in vec3 st) {\n\tfloat value = 0.0;\n\tfloat amplitude = 1.0;\n\tfor (int i = 0; i < 8; i++) {\n\t\tvalue += amplitude * snoise(st);\n\t\tst *= 2.0;\n\t\tamplitude *= 0.5;\n\t}\n\treturn value;\n}\n\n\n\n\n\n\n\n\n// /geo1/MAT/meshPhysicalBuilder3/param1\nuniform vec3 v_POLY_param1_val;\n\n// /geo1/MAT/meshPhysicalBuilder3/param2\nuniform vec3 v_POLY_param2_val;\n\n// /geo1/MAT/meshPhysicalBuilder3/globals1\nuniform float time;\n\n// /geo1/MAT/meshPhysicalBuilder3/texture1\nuniform sampler2D v_POLY_texture1_texture1;\n\n// /geo1/MAT/meshPhysicalBuilder3/ramp1\nuniform sampler2D ramp_texture_v_POLY_ramp1_val;\n\n// /geo1/MAT/meshPhysicalBuilder3/attribute1\nvarying vec3 varying_v_POLY_attribute1_val;\n\n// /geo1/MAT/meshPhysicalBuilder3/globals1\nvarying vec2 v_POLY_globals1_uv;\n\n\n\n\n#include <packing>\n#include <uv_pars_fragment>\n#include <map_pars_fragment>\n#include <alphamap_pars_fragment>\n#include <alphatest_pars_fragment>\n#include <clipping_planes_pars_fragment>\n\nstruct SSSModel {\n\tbool isActive;\n\tvec3 color;\n\tfloat thickness;\n\tfloat power;\n\tfloat scale;\n\tfloat distortion;\n\tfloat ambient;\n\tfloat attenuation;\n};\n\nvoid RE_Direct_Scattering(\n\tconst in IncidentLight directLight,\n\tconst in GeometricContext geometry,\n\tconst in SSSModel sssModel,\n\tinout ReflectedLight reflectedLight\n\t){\n\tvec3 scatteringHalf = normalize(directLight.direction + (geometry.normal * sssModel.distortion));\n\tfloat scatteringDot = pow(saturate(dot(geometry.viewDir, -scatteringHalf)), sssModel.power) * sssModel.scale;\n\tvec3 scatteringIllu = (scatteringDot + sssModel.ambient) * (sssModel.color * (1.0-sssModel.thickness));\n\treflectedLight.directDiffuse += scatteringIllu * sssModel.attenuation * directLight.color;\n}\n\nvoid main() {\n\n\t#include <clipping_planes_fragment>\n\n\tvec4 diffuseColor = vec4( 1.0 );\n\n\t#include <map_fragment>\n\t#include <alphamap_fragment>\n\t#include <alphatest_fragment>\n\n\tfloat dist = length( vWorldPosition - referencePosition );\n\tdist = ( dist - nearDistance ) / ( farDistance - nearDistance );\n\tdist = saturate( dist ); // clamp to [ 0, 1 ]\n\n\tgl_FragColor = packDepthToRGBA( dist );\n\n\t// INSERT BODY\n\n\n\n\t// /geo1/MAT/meshPhysicalBuilder3/attribute1\n\tvec3 v_POLY_attribute1_val = varying_v_POLY_attribute1_val;\n\t\n\t// /geo1/MAT/meshPhysicalBuilder3/constant1\n\tfloat v_POLY_constant1_val = 0.12;\n\t\n\t// /geo1/MAT/meshPhysicalBuilder3/globals1\n\tfloat v_POLY_globals1_time = time;\n\t\n\t// /geo1/MAT/meshPhysicalBuilder3/floatToVec3_3\n\tvec3 v_POLY_floatToVec3_3_vec3 = vec3(v_POLY_constant1_val, v_POLY_constant1_val, v_POLY_constant1_val);\n\t\n\t// /geo1/MAT/meshPhysicalBuilder3/multAdd2\n\tfloat v_POLY_multAdd2_val = (-0.1*(v_POLY_globals1_time + 0.0)) + 0.0;\n\t\n\t// /geo1/MAT/meshPhysicalBuilder3/texture1\n\tvec4 v_POLY_texture1_rgba = texture2D(v_POLY_texture1_texture1, v_POLY_globals1_uv);\n\t\n\t// /geo1/MAT/meshPhysicalBuilder3/floatToVec3_2\n\tvec3 v_POLY_floatToVec3_2_vec3 = vec3(0.0, v_POLY_multAdd2_val, 0.0);\n\t\n\t// /geo1/MAT/meshPhysicalBuilder3/vec4ToVec3_1\n\tvec3 v_POLY_vec4ToVec3_1_vec3 = v_POLY_texture1_rgba.xyz;\n\t\n\t// /geo1/MAT/meshPhysicalBuilder3/noise2\n\tfloat v_POLY_noise2_noisex = (v_POLY_floatToVec3_3_vec3*fbm_snoise_noise2((v_POLY_attribute1_val*vec3(1.0, 1.0, 1.0))+(v_POLY_floatToVec3_2_vec3+vec3(0.0, 0.0, 0.0)))).x;\n\tfloat v_POLY_noise2_noisey = (v_POLY_floatToVec3_3_vec3*fbm_snoise_noise2((v_POLY_attribute1_val*vec3(1.0, 1.0, 1.0))+(v_POLY_floatToVec3_2_vec3+vec3(1000.0, 1000.0, 1000.0)))).y;\n\tfloat v_POLY_noise2_noisez = (v_POLY_floatToVec3_3_vec3*fbm_snoise_noise2((v_POLY_attribute1_val*vec3(1.0, 1.0, 1.0))+(v_POLY_floatToVec3_2_vec3+vec3(2000.0, 2000.0, 2000.0)))).z;\n\tvec3 v_POLY_noise2_noise = vec3(v_POLY_noise2_noisex, v_POLY_noise2_noisey, v_POLY_noise2_noisez);\n\t\n\t// /geo1/MAT/meshPhysicalBuilder3/add1\n\tvec3 v_POLY_add1_sum = (v_POLY_attribute1_val + v_POLY_noise2_noise + vec3(0.0, 0.0, 0.0));\n\t\n\t// /geo1/MAT/meshPhysicalBuilder3/noise1\n\tfloat v_POLY_noise1_noise = 1.0*fbm_snoise_noise1((v_POLY_add1_sum*vec3(1.0, 1.0, 1.0))+vec3(0.0, -3.4, 0.0));\n\t\n\t// /geo1/MAT/meshPhysicalBuilder3/abs1\n\tfloat v_POLY_abs1_val = abs(v_POLY_noise1_noise);\n\t\n\t// /geo1/MAT/meshPhysicalBuilder3/ramp1\n\tvec3 v_POLY_ramp1_tmpTexureVarName = texture2D(ramp_texture_v_POLY_ramp1_val, vec2(v_POLY_abs1_val, 0.0)).xyz;\n\tfloat v_POLY_ramp1_val = -1.0 + v_POLY_ramp1_tmpTexureVarName.x + v_POLY_ramp1_tmpTexureVarName.y + v_POLY_ramp1_tmpTexureVarName.z;\n\t\n\t// /geo1/MAT/meshPhysicalBuilder3/mix1\n\tvec3 v_POLY_mix1_mix = mix(v_POLY_param1_val, v_POLY_param2_val, v_POLY_ramp1_val);\n\t\n\t// /geo1/MAT/meshPhysicalBuilder3/mult1\n\tvec3 v_POLY_mult1_product = (v_POLY_mix1_mix * v_POLY_vec4ToVec3_1_vec3 * vec3(1.0, 1.0, 1.0));\n\t\n\t// /geo1/MAT/meshPhysicalBuilder3/output1\n\tdiffuseColor.xyz = v_POLY_mult1_product;\n\tfloat POLY_metalness = 1.0;\n\tfloat POLY_roughness = 1.0;\n\tvec3 POLY_emissive = vec3(1.0, 1.0, 1.0);\n\tSSSModel POLY_SSSModel = SSSModel(/*isActive*/false,/*color*/vec3(1.0, 1.0, 1.0), /*thickness*/0.1, /*power*/2.0, /*scale*/16.0, /*distortion*/0.1,/*ambient*/0.4,/*attenuation*/0.8 );\n\tfloat POLY_transmission = 1.0;\n\tfloat POLY_thickness = 1.0;\n\n\n\n\n\t// all this shader above the INSERT BODY line\n\t// is copied from the threejs ShaderLib.depth template fragment shader.\n\t// The line below is necessary to tie the alpha to the one that is computed by the gl nodes.\n\t// I'm not entirely sure why I need to negate diffuseColor.a with '1.0 -'\n\t// but it seems to be what make the shader match the alpha of the main material.\n\tgl_FragColor.a = 1.0 - diffuseColor.a;\n\n}\n",
+				"shadowSide": null,
+				"lights": false
+			},
+			"customDepthMaterial": {
+				"metadata": {
+					"version": 4.5,
+					"type": "Material",
+					"generator": "Material.toJSON"
+				},
+				"uuid": "/geo1/MAT/meshPhysicalBuilder3-customDepthMaterial",
+				"type": "ShaderMaterial",
+				"name": "customDepthMaterial",
+				"depthFunc": 3,
+				"depthTest": true,
+				"depthWrite": true,
+				"colorWrite": true,
+				"stencilWrite": false,
+				"stencilWriteMask": 255,
+				"stencilFunc": 519,
+				"stencilRef": 0,
+				"stencilFuncMask": 255,
+				"stencilFail": 7680,
+				"stencilZFail": 7680,
+				"stencilZPass": 7680,
+				"glslVersion": null,
+				"uniforms": {
+					"diffuse": {
+						"type": "c",
+						"value": 16777215
+					},
+					"opacity": {
+						"value": 1
+					},
+					"map": {
+						"value": null
+					},
+					"uvTransform": {
+						"type": "m3",
+						"value": [
+							1,
+							0,
+							0,
+							0,
+							1,
+							0,
+							0,
+							0,
+							1
+						]
+					},
+					"uv2Transform": {
+						"type": "m3",
+						"value": [
+							1,
+							0,
+							0,
+							0,
+							1,
+							0,
+							0,
+							0,
+							1
+						]
+					},
+					"alphaMap": {
+						"value": null
+					},
+					"alphaTest": {
+						"value": 0
+					},
+					"displacementMap": {
+						"value": null
+					},
+					"displacementScale": {
+						"value": 1
+					},
+					"displacementBias": {
+						"value": 0
+					},
+					"v_POLY_param1_val": {
+						"type": "c",
+						"value": 16711680
+					},
+					"v_POLY_param2_val": {
+						"type": "c",
+						"value": 0
+					},
+					"ramp_texture_v_POLY_ramp1_val": {
+						"value": null
+					},
+					"time": {
+						"value": 400.5038000001913
+					},
+					"v_POLY_texture1_texture1": {
+						"value": null
+					}
+				},
+				"defines": {
+					"DEPTH_PACKING": 3201
+				},
+				"vertexShader": "\n#include <common>\n\n\n\n// /geo1/MAT/meshPhysicalBuilder3/globals1\nuniform float time;\n\n// /geo1/MAT/meshPhysicalBuilder3/attribute1\nvarying vec3 varying_v_POLY_attribute1_val;\n\n// /geo1/MAT/meshPhysicalBuilder3/globals1\nvarying vec2 v_POLY_globals1_uv;\n\n// /geo1/MAT/meshPhysicalBuilder3/attribute1\nattribute vec3 restP;\n\n\n\n\n#include <uv_pars_vertex>\n#include <displacementmap_pars_vertex>\n#include <morphtarget_pars_vertex>\n#include <skinning_pars_vertex>\n#include <logdepthbuf_pars_vertex>\n#include <clipping_planes_pars_vertex>\n\n// This is used for computing an equivalent of gl_FragCoord.z that is as high precision as possible.\n// Some platforms compute gl_FragCoord at a lower precision which makes the manually computed value better for\n// depth-based postprocessing effects. Reproduced on iPad with A10 processor / iPadOS 13.3.1.\nvarying vec2 vHighPrecisionZW;\n\nvoid main() {\n\n\t#include <uv_vertex>\n\n\t#include <skinbase_vertex>\n\n\t#ifdef USE_DISPLACEMENTMAP\n\n// removed:\n//\t\t#include <beginnormal_vertex>\n\t\t#include <morphnormal_vertex>\n\t\t#include <skinnormal_vertex>\n\n\t#endif\n\n// removed:\n//\t#include <begin_vertex>\n\n\n\n\t// /geo1/MAT/meshPhysicalBuilder3/attribute1\n\tvarying_v_POLY_attribute1_val = vec3(restP);\n\t\n\t// /geo1/MAT/meshPhysicalBuilder3/globals1\n\tv_POLY_globals1_uv = vec2(uv);\n\tfloat v_POLY_globals1_time = time;\n\t\n\t// /geo1/MAT/meshPhysicalBuilder3/output1\n\tvec3 transformed = position;\n\tvec3 objectNormal = normal;\n\t#ifdef USE_TANGENT\n\t\tvec3 objectTangent = vec3( tangent.xyz );\n\t#endif\n\n\n\n\t#include <morphtarget_vertex>\n\t#include <skinning_vertex>\n\t#include <displacementmap_vertex>\n\t#include <project_vertex>\n\t#include <logdepthbuf_vertex>\n\t#include <clipping_planes_vertex>\n\n\tvHighPrecisionZW = gl_Position.zw;\n\n}\n",
+				"fragmentShader": "// INSERT DEFINES\n\n\n#if DEPTH_PACKING == 3200\n\n\tuniform float opacity;\n\n#endif\n\n#include <common>\n\n\n\n// /geo1/MAT/meshPhysicalBuilder3/noise2\n// Modulo 289 without a division (only multiplications)\nfloat mod289(float x) {\n  return x - floor(x * (1.0 / 289.0)) * 289.0;\n}\nvec2 mod289(vec2 x) {\n  return x - floor(x * (1.0 / 289.0)) * 289.0;\n}\nvec3 mod289(vec3 x) {\n  return x - floor(x * (1.0 / 289.0)) * 289.0;\n}\nvec4 mod289(vec4 x) {\n  return x - floor(x * (1.0 / 289.0)) * 289.0;\n}\n// Modulo 7 without a division\nvec3 mod7(vec3 x) {\n  return x - floor(x * (1.0 / 7.0)) * 7.0;\n}\n\n// Permutation polynomial: (34x^2 + x) mod 289\nfloat permute(float x) {\n     return mod289(((x*34.0)+1.0)*x);\n}\nvec3 permute(vec3 x) {\n  return mod289((34.0 * x + 1.0) * x);\n}\nvec4 permute(vec4 x) {\n     return mod289(((x*34.0)+1.0)*x);\n}\n\nfloat taylorInvSqrt(float r)\n{\n  return 1.79284291400159 - 0.85373472095314 * r;\n}\nvec4 taylorInvSqrt(vec4 r)\n{\n  return 1.79284291400159 - 0.85373472095314 * r;\n}\n\nvec2 fade(vec2 t) {\n  return t*t*t*(t*(t*6.0-15.0)+10.0);\n}\nvec3 fade(vec3 t) {\n  return t*t*t*(t*(t*6.0-15.0)+10.0);\n}\nvec4 fade(vec4 t) {\n  return t*t*t*(t*(t*6.0-15.0)+10.0);\n}\n//\n// Description : Array and textureless GLSL 2D/3D/4D simplex \n//               noise functions.\n//      Author : Ian McEwan, Ashima Arts.\n//  Maintainer : stegu\n//     Lastmod : 20110822 (ijm)\n//     License : Copyright (C) 2011 Ashima Arts. All rights reserved.\n//               Distributed under the MIT License. See LICENSE file.\n//               https://github.com/ashima/webgl-noise\n//               https://github.com/stegu/webgl-noise\n// \n\n\n\nfloat snoise(vec3 v)\n  { \n  const vec2  C = vec2(1.0/6.0, 1.0/3.0) ;\n  const vec4  D = vec4(0.0, 0.5, 1.0, 2.0);\n\n// First corner\n  vec3 i  = floor(v + dot(v, C.yyy) );\n  vec3 x0 =   v - i + dot(i, C.xxx) ;\n\n// Other corners\n  vec3 g = step(x0.yzx, x0.xyz);\n  vec3 l = 1.0 - g;\n  vec3 i1 = min( g.xyz, l.zxy );\n  vec3 i2 = max( g.xyz, l.zxy );\n\n  //   x0 = x0 - 0.0 + 0.0 * C.xxx;\n  //   x1 = x0 - i1  + 1.0 * C.xxx;\n  //   x2 = x0 - i2  + 2.0 * C.xxx;\n  //   x3 = x0 - 1.0 + 3.0 * C.xxx;\n  vec3 x1 = x0 - i1 + C.xxx;\n  vec3 x2 = x0 - i2 + C.yyy; // 2.0*C.x = 1/3 = C.y\n  vec3 x3 = x0 - D.yyy;      // -1.0+3.0*C.x = -0.5 = -D.y\n\n// Permutations\n  i = mod289(i); \n  vec4 p = permute( permute( permute( \n             i.z + vec4(0.0, i1.z, i2.z, 1.0 ))\n           + i.y + vec4(0.0, i1.y, i2.y, 1.0 )) \n           + i.x + vec4(0.0, i1.x, i2.x, 1.0 ));\n\n// Gradients: 7x7 points over a square, mapped onto an octahedron.\n// The ring size 17*17 = 289 is close to a multiple of 49 (49*6 = 294)\n  float n_ = 0.142857142857; // 1.0/7.0\n  vec3  ns = n_ * D.wyz - D.xzx;\n\n  vec4 j = p - 49.0 * floor(p * ns.z * ns.z);  //  mod(p,7*7)\n\n  vec4 x_ = floor(j * ns.z);\n  vec4 y_ = floor(j - 7.0 * x_ );    // mod(j,N)\n\n  vec4 x = x_ *ns.x + ns.yyyy;\n  vec4 y = y_ *ns.x + ns.yyyy;\n  vec4 h = 1.0 - abs(x) - abs(y);\n\n  vec4 b0 = vec4( x.xy, y.xy );\n  vec4 b1 = vec4( x.zw, y.zw );\n\n  //vec4 s0 = vec4(lessThan(b0,0.0))*2.0 - 1.0;\n  //vec4 s1 = vec4(lessThan(b1,0.0))*2.0 - 1.0;\n  vec4 s0 = floor(b0)*2.0 + 1.0;\n  vec4 s1 = floor(b1)*2.0 + 1.0;\n  vec4 sh = -step(h, vec4(0.0));\n\n  vec4 a0 = b0.xzyw + s0.xzyw*sh.xxyy ;\n  vec4 a1 = b1.xzyw + s1.xzyw*sh.zzww ;\n\n  vec3 p0 = vec3(a0.xy,h.x);\n  vec3 p1 = vec3(a0.zw,h.y);\n  vec3 p2 = vec3(a1.xy,h.z);\n  vec3 p3 = vec3(a1.zw,h.w);\n\n//Normalise gradients\n  vec4 norm = taylorInvSqrt(vec4(dot(p0,p0), dot(p1,p1), dot(p2, p2), dot(p3,p3)));\n  p0 *= norm.x;\n  p1 *= norm.y;\n  p2 *= norm.z;\n  p3 *= norm.w;\n\n// Mix final noise value\n  vec4 m = max(0.6 - vec4(dot(x0,x0), dot(x1,x1), dot(x2,x2), dot(x3,x3)), 0.0);\n  m = m * m;\n  return 42.0 * dot( m*m, vec4( dot(p0,x0), dot(p1,x1), \n                                dot(p2,x2), dot(p3,x3) ) );\n  }\n\n\nfloat fbm_snoise_noise2 (in vec3 st) {\n\tfloat value = 0.0;\n\tfloat amplitude = 1.0;\n\tfor (int i = 0; i < 8; i++) {\n\t\tvalue += amplitude * snoise(st);\n\t\tst *= 2.0;\n\t\tamplitude *= 0.5;\n\t}\n\treturn value;\n}\n\n\n// /geo1/MAT/meshPhysicalBuilder3/noise1\n\nfloat fbm_snoise_noise1 (in vec3 st) {\n\tfloat value = 0.0;\n\tfloat amplitude = 1.0;\n\tfor (int i = 0; i < 8; i++) {\n\t\tvalue += amplitude * snoise(st);\n\t\tst *= 2.0;\n\t\tamplitude *= 0.5;\n\t}\n\treturn value;\n}\n\n\n\n\n\n\n\n\n// /geo1/MAT/meshPhysicalBuilder3/param1\nuniform vec3 v_POLY_param1_val;\n\n// /geo1/MAT/meshPhysicalBuilder3/param2\nuniform vec3 v_POLY_param2_val;\n\n// /geo1/MAT/meshPhysicalBuilder3/globals1\nuniform float time;\n\n// /geo1/MAT/meshPhysicalBuilder3/texture1\nuniform sampler2D v_POLY_texture1_texture1;\n\n// /geo1/MAT/meshPhysicalBuilder3/ramp1\nuniform sampler2D ramp_texture_v_POLY_ramp1_val;\n\n// /geo1/MAT/meshPhysicalBuilder3/attribute1\nvarying vec3 varying_v_POLY_attribute1_val;\n\n// /geo1/MAT/meshPhysicalBuilder3/globals1\nvarying vec2 v_POLY_globals1_uv;\n\n\n\n\n#include <packing>\n#include <uv_pars_fragment>\n#include <map_pars_fragment>\n#include <alphamap_pars_fragment>\n#include <alphatest_pars_fragment>\n#include <logdepthbuf_pars_fragment>\n#include <clipping_planes_pars_fragment>\n\nvarying vec2 vHighPrecisionZW;\n\nstruct SSSModel {\n\tbool isActive;\n\tvec3 color;\n\tfloat thickness;\n\tfloat power;\n\tfloat scale;\n\tfloat distortion;\n\tfloat ambient;\n\tfloat attenuation;\n};\n\nvoid RE_Direct_Scattering(\n\tconst in IncidentLight directLight,\n\tconst in GeometricContext geometry,\n\tconst in SSSModel sssModel,\n\tinout ReflectedLight reflectedLight\n\t){\n\tvec3 scatteringHalf = normalize(directLight.direction + (geometry.normal * sssModel.distortion));\n\tfloat scatteringDot = pow(saturate(dot(geometry.viewDir, -scatteringHalf)), sssModel.power) * sssModel.scale;\n\tvec3 scatteringIllu = (scatteringDot + sssModel.ambient) * (sssModel.color * (1.0-sssModel.thickness));\n\treflectedLight.directDiffuse += scatteringIllu * sssModel.attenuation * directLight.color;\n}\n\nvoid main() {\n\n\t#include <clipping_planes_fragment>\n\n\tvec4 diffuseColor = vec4( 1.0 );\n\n\t#if DEPTH_PACKING == 3200\n\n\t\tdiffuseColor.a = opacity;\n\n\t#endif\n\n\t#include <map_fragment>\n\t#include <alphamap_fragment>\n\t#include <alphatest_fragment>\n\n\t#include <logdepthbuf_fragment>\n\n\t// Higher precision equivalent of gl_FragCoord.z. This assumes depthRange has been left to its default values.\n\tfloat fragCoordZ = 0.5 * vHighPrecisionZW[0] / vHighPrecisionZW[1] + 0.5;\n\n\t#if DEPTH_PACKING == 3200\n\n\t\tgl_FragColor = vec4( vec3( 1.0 - fragCoordZ ), opacity );\n\n\t#elif DEPTH_PACKING == 3201\n\n\t\tgl_FragColor = packDepthToRGBA( fragCoordZ );\n\n\t#endif\n\n\t// INSERT BODY\n\n\n\n\t// /geo1/MAT/meshPhysicalBuilder3/attribute1\n\tvec3 v_POLY_attribute1_val = varying_v_POLY_attribute1_val;\n\t\n\t// /geo1/MAT/meshPhysicalBuilder3/constant1\n\tfloat v_POLY_constant1_val = 0.12;\n\t\n\t// /geo1/MAT/meshPhysicalBuilder3/globals1\n\tfloat v_POLY_globals1_time = time;\n\t\n\t// /geo1/MAT/meshPhysicalBuilder3/floatToVec3_3\n\tvec3 v_POLY_floatToVec3_3_vec3 = vec3(v_POLY_constant1_val, v_POLY_constant1_val, v_POLY_constant1_val);\n\t\n\t// /geo1/MAT/meshPhysicalBuilder3/multAdd2\n\tfloat v_POLY_multAdd2_val = (-0.1*(v_POLY_globals1_time + 0.0)) + 0.0;\n\t\n\t// /geo1/MAT/meshPhysicalBuilder3/texture1\n\tvec4 v_POLY_texture1_rgba = texture2D(v_POLY_texture1_texture1, v_POLY_globals1_uv);\n\t\n\t// /geo1/MAT/meshPhysicalBuilder3/floatToVec3_2\n\tvec3 v_POLY_floatToVec3_2_vec3 = vec3(0.0, v_POLY_multAdd2_val, 0.0);\n\t\n\t// /geo1/MAT/meshPhysicalBuilder3/vec4ToVec3_1\n\tvec3 v_POLY_vec4ToVec3_1_vec3 = v_POLY_texture1_rgba.xyz;\n\t\n\t// /geo1/MAT/meshPhysicalBuilder3/noise2\n\tfloat v_POLY_noise2_noisex = (v_POLY_floatToVec3_3_vec3*fbm_snoise_noise2((v_POLY_attribute1_val*vec3(1.0, 1.0, 1.0))+(v_POLY_floatToVec3_2_vec3+vec3(0.0, 0.0, 0.0)))).x;\n\tfloat v_POLY_noise2_noisey = (v_POLY_floatToVec3_3_vec3*fbm_snoise_noise2((v_POLY_attribute1_val*vec3(1.0, 1.0, 1.0))+(v_POLY_floatToVec3_2_vec3+vec3(1000.0, 1000.0, 1000.0)))).y;\n\tfloat v_POLY_noise2_noisez = (v_POLY_floatToVec3_3_vec3*fbm_snoise_noise2((v_POLY_attribute1_val*vec3(1.0, 1.0, 1.0))+(v_POLY_floatToVec3_2_vec3+vec3(2000.0, 2000.0, 2000.0)))).z;\n\tvec3 v_POLY_noise2_noise = vec3(v_POLY_noise2_noisex, v_POLY_noise2_noisey, v_POLY_noise2_noisez);\n\t\n\t// /geo1/MAT/meshPhysicalBuilder3/add1\n\tvec3 v_POLY_add1_sum = (v_POLY_attribute1_val + v_POLY_noise2_noise + vec3(0.0, 0.0, 0.0));\n\t\n\t// /geo1/MAT/meshPhysicalBuilder3/noise1\n\tfloat v_POLY_noise1_noise = 1.0*fbm_snoise_noise1((v_POLY_add1_sum*vec3(1.0, 1.0, 1.0))+vec3(0.0, -3.4, 0.0));\n\t\n\t// /geo1/MAT/meshPhysicalBuilder3/abs1\n\tfloat v_POLY_abs1_val = abs(v_POLY_noise1_noise);\n\t\n\t// /geo1/MAT/meshPhysicalBuilder3/ramp1\n\tvec3 v_POLY_ramp1_tmpTexureVarName = texture2D(ramp_texture_v_POLY_ramp1_val, vec2(v_POLY_abs1_val, 0.0)).xyz;\n\tfloat v_POLY_ramp1_val = -1.0 + v_POLY_ramp1_tmpTexureVarName.x + v_POLY_ramp1_tmpTexureVarName.y + v_POLY_ramp1_tmpTexureVarName.z;\n\t\n\t// /geo1/MAT/meshPhysicalBuilder3/mix1\n\tvec3 v_POLY_mix1_mix = mix(v_POLY_param1_val, v_POLY_param2_val, v_POLY_ramp1_val);\n\t\n\t// /geo1/MAT/meshPhysicalBuilder3/mult1\n\tvec3 v_POLY_mult1_product = (v_POLY_mix1_mix * v_POLY_vec4ToVec3_1_vec3 * vec3(1.0, 1.0, 1.0));\n\t\n\t// /geo1/MAT/meshPhysicalBuilder3/output1\n\tdiffuseColor.xyz = v_POLY_mult1_product;\n\tfloat POLY_metalness = 1.0;\n\tfloat POLY_roughness = 1.0;\n\tvec3 POLY_emissive = vec3(1.0, 1.0, 1.0);\n\tSSSModel POLY_SSSModel = SSSModel(/*isActive*/false,/*color*/vec3(1.0, 1.0, 1.0), /*thickness*/0.1, /*power*/2.0, /*scale*/16.0, /*distortion*/0.1,/*ambient*/0.4,/*attenuation*/0.8 );\n\tfloat POLY_transmission = 1.0;\n\tfloat POLY_thickness = 1.0;\n\n\n\n\n\t// all this shader above the INSERT BODY line\n\t// is copied from the threejs ShaderLib.depth template fragment shader.\n\t// The line below is necessary to tie the alpha to the one that is computed by the gl nodes.\n\t// I'm not entirely sure why I need to negate diffuseColor.a with '1.0 -'\n\t// but it seems to be what make the shader match the alpha of the main material.\n\tgl_FragColor.a = 1.0 - diffuseColor.a;\n\n}\n",
+				"shadowSide": null,
+				"lights": false
+			},
+			"customDepthDOFMaterial": {
+				"metadata": {
+					"version": 4.5,
+					"type": "Material",
+					"generator": "Material.toJSON"
+				},
+				"uuid": "/geo1/MAT/meshPhysicalBuilder3-customDepthDOFMaterial",
+				"type": "ShaderMaterial",
+				"name": "customDepthDOFMaterial",
+				"transparent": true,
+				"depthFunc": 3,
+				"depthTest": true,
+				"depthWrite": true,
+				"colorWrite": true,
+				"stencilWrite": false,
+				"stencilWriteMask": 255,
+				"stencilFunc": 519,
+				"stencilRef": 0,
+				"stencilFuncMask": 255,
+				"stencilFail": 7680,
+				"stencilZFail": 7680,
+				"stencilZPass": 7680,
+				"glslVersion": null,
+				"uniforms": {
+					"mNear": {
+						"value": 0
+					},
+					"mFar": {
+						"value": 10
+					},
+					"v_POLY_param1_val": {
+						"type": "c",
+						"value": 16711680
+					},
+					"v_POLY_param2_val": {
+						"type": "c",
+						"value": 0
+					},
+					"ramp_texture_v_POLY_ramp1_val": {
+						"value": null
+					},
+					"time": {
+						"value": 400.5038000001913
+					},
+					"v_POLY_texture1_texture1": {
+						"value": null
+					}
+				},
+				"vertexShader": "#include <common>\n\nvarying float vViewZDepth;\n\n// INSERT DEFINES\n\n\n\n// /geo1/MAT/meshPhysicalBuilder3/globals1\nuniform float time;\n\n// /geo1/MAT/meshPhysicalBuilder3/attribute1\nvarying vec3 varying_v_POLY_attribute1_val;\n\n// /geo1/MAT/meshPhysicalBuilder3/globals1\nvarying vec2 v_POLY_globals1_uv;\n\n// /geo1/MAT/meshPhysicalBuilder3/attribute1\nattribute vec3 restP;\n\n\n\n\n\n\n\nvoid main() {\n\n\t// INSERT BODY\n\n\n\n\t// /geo1/MAT/meshPhysicalBuilder3/attribute1\n\tvarying_v_POLY_attribute1_val = vec3(restP);\n\t\n\t// /geo1/MAT/meshPhysicalBuilder3/globals1\n\tv_POLY_globals1_uv = vec2(uv);\n\tfloat v_POLY_globals1_time = time;\n\t\n\t// /geo1/MAT/meshPhysicalBuilder3/output1\n\tvec3 transformed = position;\n\tvec3 objectNormal = normal;\n\t#ifdef USE_TANGENT\n\t\tvec3 objectTangent = vec3( tangent.xyz );\n\t#endif\n\n\n\n\n\n\t#include <project_vertex>\n\n\tvViewZDepth = - mvPosition.z;\n}",
+				"fragmentShader": "uniform float mNear;\nuniform float mFar;\n\nvarying float vViewZDepth;\n\n// INSERT DEFINES\n\n\n\n// /geo1/MAT/meshPhysicalBuilder3/noise2\n// Modulo 289 without a division (only multiplications)\nfloat mod289(float x) {\n  return x - floor(x * (1.0 / 289.0)) * 289.0;\n}\nvec2 mod289(vec2 x) {\n  return x - floor(x * (1.0 / 289.0)) * 289.0;\n}\nvec3 mod289(vec3 x) {\n  return x - floor(x * (1.0 / 289.0)) * 289.0;\n}\nvec4 mod289(vec4 x) {\n  return x - floor(x * (1.0 / 289.0)) * 289.0;\n}\n// Modulo 7 without a division\nvec3 mod7(vec3 x) {\n  return x - floor(x * (1.0 / 7.0)) * 7.0;\n}\n\n// Permutation polynomial: (34x^2 + x) mod 289\nfloat permute(float x) {\n     return mod289(((x*34.0)+1.0)*x);\n}\nvec3 permute(vec3 x) {\n  return mod289((34.0 * x + 1.0) * x);\n}\nvec4 permute(vec4 x) {\n     return mod289(((x*34.0)+1.0)*x);\n}\n\nfloat taylorInvSqrt(float r)\n{\n  return 1.79284291400159 - 0.85373472095314 * r;\n}\nvec4 taylorInvSqrt(vec4 r)\n{\n  return 1.79284291400159 - 0.85373472095314 * r;\n}\n\nvec2 fade(vec2 t) {\n  return t*t*t*(t*(t*6.0-15.0)+10.0);\n}\nvec3 fade(vec3 t) {\n  return t*t*t*(t*(t*6.0-15.0)+10.0);\n}\nvec4 fade(vec4 t) {\n  return t*t*t*(t*(t*6.0-15.0)+10.0);\n}\n//\n// Description : Array and textureless GLSL 2D/3D/4D simplex \n//               noise functions.\n//      Author : Ian McEwan, Ashima Arts.\n//  Maintainer : stegu\n//     Lastmod : 20110822 (ijm)\n//     License : Copyright (C) 2011 Ashima Arts. All rights reserved.\n//               Distributed under the MIT License. See LICENSE file.\n//               https://github.com/ashima/webgl-noise\n//               https://github.com/stegu/webgl-noise\n// \n\n\n\nfloat snoise(vec3 v)\n  { \n  const vec2  C = vec2(1.0/6.0, 1.0/3.0) ;\n  const vec4  D = vec4(0.0, 0.5, 1.0, 2.0);\n\n// First corner\n  vec3 i  = floor(v + dot(v, C.yyy) );\n  vec3 x0 =   v - i + dot(i, C.xxx) ;\n\n// Other corners\n  vec3 g = step(x0.yzx, x0.xyz);\n  vec3 l = 1.0 - g;\n  vec3 i1 = min( g.xyz, l.zxy );\n  vec3 i2 = max( g.xyz, l.zxy );\n\n  //   x0 = x0 - 0.0 + 0.0 * C.xxx;\n  //   x1 = x0 - i1  + 1.0 * C.xxx;\n  //   x2 = x0 - i2  + 2.0 * C.xxx;\n  //   x3 = x0 - 1.0 + 3.0 * C.xxx;\n  vec3 x1 = x0 - i1 + C.xxx;\n  vec3 x2 = x0 - i2 + C.yyy; // 2.0*C.x = 1/3 = C.y\n  vec3 x3 = x0 - D.yyy;      // -1.0+3.0*C.x = -0.5 = -D.y\n\n// Permutations\n  i = mod289(i); \n  vec4 p = permute( permute( permute( \n             i.z + vec4(0.0, i1.z, i2.z, 1.0 ))\n           + i.y + vec4(0.0, i1.y, i2.y, 1.0 )) \n           + i.x + vec4(0.0, i1.x, i2.x, 1.0 ));\n\n// Gradients: 7x7 points over a square, mapped onto an octahedron.\n// The ring size 17*17 = 289 is close to a multiple of 49 (49*6 = 294)\n  float n_ = 0.142857142857; // 1.0/7.0\n  vec3  ns = n_ * D.wyz - D.xzx;\n\n  vec4 j = p - 49.0 * floor(p * ns.z * ns.z);  //  mod(p,7*7)\n\n  vec4 x_ = floor(j * ns.z);\n  vec4 y_ = floor(j - 7.0 * x_ );    // mod(j,N)\n\n  vec4 x = x_ *ns.x + ns.yyyy;\n  vec4 y = y_ *ns.x + ns.yyyy;\n  vec4 h = 1.0 - abs(x) - abs(y);\n\n  vec4 b0 = vec4( x.xy, y.xy );\n  vec4 b1 = vec4( x.zw, y.zw );\n\n  //vec4 s0 = vec4(lessThan(b0,0.0))*2.0 - 1.0;\n  //vec4 s1 = vec4(lessThan(b1,0.0))*2.0 - 1.0;\n  vec4 s0 = floor(b0)*2.0 + 1.0;\n  vec4 s1 = floor(b1)*2.0 + 1.0;\n  vec4 sh = -step(h, vec4(0.0));\n\n  vec4 a0 = b0.xzyw + s0.xzyw*sh.xxyy ;\n  vec4 a1 = b1.xzyw + s1.xzyw*sh.zzww ;\n\n  vec3 p0 = vec3(a0.xy,h.x);\n  vec3 p1 = vec3(a0.zw,h.y);\n  vec3 p2 = vec3(a1.xy,h.z);\n  vec3 p3 = vec3(a1.zw,h.w);\n\n//Normalise gradients\n  vec4 norm = taylorInvSqrt(vec4(dot(p0,p0), dot(p1,p1), dot(p2, p2), dot(p3,p3)));\n  p0 *= norm.x;\n  p1 *= norm.y;\n  p2 *= norm.z;\n  p3 *= norm.w;\n\n// Mix final noise value\n  vec4 m = max(0.6 - vec4(dot(x0,x0), dot(x1,x1), dot(x2,x2), dot(x3,x3)), 0.0);\n  m = m * m;\n  return 42.0 * dot( m*m, vec4( dot(p0,x0), dot(p1,x1), \n                                dot(p2,x2), dot(p3,x3) ) );\n  }\n\n\nfloat fbm_snoise_noise2 (in vec3 st) {\n\tfloat value = 0.0;\n\tfloat amplitude = 1.0;\n\tfor (int i = 0; i < 8; i++) {\n\t\tvalue += amplitude * snoise(st);\n\t\tst *= 2.0;\n\t\tamplitude *= 0.5;\n\t}\n\treturn value;\n}\n\n\n// /geo1/MAT/meshPhysicalBuilder3/noise1\n\nfloat fbm_snoise_noise1 (in vec3 st) {\n\tfloat value = 0.0;\n\tfloat amplitude = 1.0;\n\tfor (int i = 0; i < 8; i++) {\n\t\tvalue += amplitude * snoise(st);\n\t\tst *= 2.0;\n\t\tamplitude *= 0.5;\n\t}\n\treturn value;\n}\n\n\n\n\n\n\n\n\n// /geo1/MAT/meshPhysicalBuilder3/param1\nuniform vec3 v_POLY_param1_val;\n\n// /geo1/MAT/meshPhysicalBuilder3/param2\nuniform vec3 v_POLY_param2_val;\n\n// /geo1/MAT/meshPhysicalBuilder3/globals1\nuniform float time;\n\n// /geo1/MAT/meshPhysicalBuilder3/texture1\nuniform sampler2D v_POLY_texture1_texture1;\n\n// /geo1/MAT/meshPhysicalBuilder3/ramp1\nuniform sampler2D ramp_texture_v_POLY_ramp1_val;\n\n// /geo1/MAT/meshPhysicalBuilder3/attribute1\nvarying vec3 varying_v_POLY_attribute1_val;\n\n// /geo1/MAT/meshPhysicalBuilder3/globals1\nvarying vec2 v_POLY_globals1_uv;\n\n\n\n\n\nstruct SSSModel {\n\tbool isActive;\n\tvec3 color;\n\tfloat thickness;\n\tfloat power;\n\tfloat scale;\n\tfloat distortion;\n\tfloat ambient;\n\tfloat attenuation;\n};\n\nvoid RE_Direct_Scattering(\n\tconst in IncidentLight directLight,\n\tconst in GeometricContext geometry,\n\tconst in SSSModel sssModel,\n\tinout ReflectedLight reflectedLight\n\t){\n\tvec3 scatteringHalf = normalize(directLight.direction + (geometry.normal * sssModel.distortion));\n\tfloat scatteringDot = pow(saturate(dot(geometry.viewDir, -scatteringHalf)), sssModel.power) * sssModel.scale;\n\tvec3 scatteringIllu = (scatteringDot + sssModel.ambient) * (sssModel.color * (1.0-sssModel.thickness));\n\treflectedLight.directDiffuse += scatteringIllu * sssModel.attenuation * directLight.color;\n}\n\nvoid main() {\n\n\tfloat color = 1.0 - smoothstep( mNear, mFar, vViewZDepth );\n\tgl_FragColor = vec4( vec3( color ), 1.0 );\n\tvec4 diffuseColor = gl_FragColor;\n\n\t// INSERT BODY\n\n\n\n\t// /geo1/MAT/meshPhysicalBuilder3/attribute1\n\tvec3 v_POLY_attribute1_val = varying_v_POLY_attribute1_val;\n\t\n\t// /geo1/MAT/meshPhysicalBuilder3/constant1\n\tfloat v_POLY_constant1_val = 0.12;\n\t\n\t// /geo1/MAT/meshPhysicalBuilder3/globals1\n\tfloat v_POLY_globals1_time = time;\n\t\n\t// /geo1/MAT/meshPhysicalBuilder3/floatToVec3_3\n\tvec3 v_POLY_floatToVec3_3_vec3 = vec3(v_POLY_constant1_val, v_POLY_constant1_val, v_POLY_constant1_val);\n\t\n\t// /geo1/MAT/meshPhysicalBuilder3/multAdd2\n\tfloat v_POLY_multAdd2_val = (-0.1*(v_POLY_globals1_time + 0.0)) + 0.0;\n\t\n\t// /geo1/MAT/meshPhysicalBuilder3/texture1\n\tvec4 v_POLY_texture1_rgba = texture2D(v_POLY_texture1_texture1, v_POLY_globals1_uv);\n\t\n\t// /geo1/MAT/meshPhysicalBuilder3/floatToVec3_2\n\tvec3 v_POLY_floatToVec3_2_vec3 = vec3(0.0, v_POLY_multAdd2_val, 0.0);\n\t\n\t// /geo1/MAT/meshPhysicalBuilder3/vec4ToVec3_1\n\tvec3 v_POLY_vec4ToVec3_1_vec3 = v_POLY_texture1_rgba.xyz;\n\t\n\t// /geo1/MAT/meshPhysicalBuilder3/noise2\n\tfloat v_POLY_noise2_noisex = (v_POLY_floatToVec3_3_vec3*fbm_snoise_noise2((v_POLY_attribute1_val*vec3(1.0, 1.0, 1.0))+(v_POLY_floatToVec3_2_vec3+vec3(0.0, 0.0, 0.0)))).x;\n\tfloat v_POLY_noise2_noisey = (v_POLY_floatToVec3_3_vec3*fbm_snoise_noise2((v_POLY_attribute1_val*vec3(1.0, 1.0, 1.0))+(v_POLY_floatToVec3_2_vec3+vec3(1000.0, 1000.0, 1000.0)))).y;\n\tfloat v_POLY_noise2_noisez = (v_POLY_floatToVec3_3_vec3*fbm_snoise_noise2((v_POLY_attribute1_val*vec3(1.0, 1.0, 1.0))+(v_POLY_floatToVec3_2_vec3+vec3(2000.0, 2000.0, 2000.0)))).z;\n\tvec3 v_POLY_noise2_noise = vec3(v_POLY_noise2_noisex, v_POLY_noise2_noisey, v_POLY_noise2_noisez);\n\t\n\t// /geo1/MAT/meshPhysicalBuilder3/add1\n\tvec3 v_POLY_add1_sum = (v_POLY_attribute1_val + v_POLY_noise2_noise + vec3(0.0, 0.0, 0.0));\n\t\n\t// /geo1/MAT/meshPhysicalBuilder3/noise1\n\tfloat v_POLY_noise1_noise = 1.0*fbm_snoise_noise1((v_POLY_add1_sum*vec3(1.0, 1.0, 1.0))+vec3(0.0, -3.4, 0.0));\n\t\n\t// /geo1/MAT/meshPhysicalBuilder3/abs1\n\tfloat v_POLY_abs1_val = abs(v_POLY_noise1_noise);\n\t\n\t// /geo1/MAT/meshPhysicalBuilder3/ramp1\n\tvec3 v_POLY_ramp1_tmpTexureVarName = texture2D(ramp_texture_v_POLY_ramp1_val, vec2(v_POLY_abs1_val, 0.0)).xyz;\n\tfloat v_POLY_ramp1_val = -1.0 + v_POLY_ramp1_tmpTexureVarName.x + v_POLY_ramp1_tmpTexureVarName.y + v_POLY_ramp1_tmpTexureVarName.z;\n\t\n\t// /geo1/MAT/meshPhysicalBuilder3/mix1\n\tvec3 v_POLY_mix1_mix = mix(v_POLY_param1_val, v_POLY_param2_val, v_POLY_ramp1_val);\n\t\n\t// /geo1/MAT/meshPhysicalBuilder3/mult1\n\tvec3 v_POLY_mult1_product = (v_POLY_mix1_mix * v_POLY_vec4ToVec3_1_vec3 * vec3(1.0, 1.0, 1.0));\n\t\n\t// /geo1/MAT/meshPhysicalBuilder3/output1\n\tdiffuseColor.xyz = v_POLY_mult1_product;\n\tfloat POLY_metalness = 1.0;\n\tfloat POLY_roughness = 1.0;\n\tvec3 POLY_emissive = vec3(1.0, 1.0, 1.0);\n\tSSSModel POLY_SSSModel = SSSModel(/*isActive*/false,/*color*/vec3(1.0, 1.0, 1.0), /*thickness*/0.1, /*power*/2.0, /*scale*/16.0, /*distortion*/0.1,/*ambient*/0.4,/*attenuation*/0.8 );\n\tfloat POLY_transmission = 1.0;\n\tfloat POLY_thickness = 1.0;\n\n\n\n\n\tgl_FragColor.a = diffuseColor.a;\n}\n",
+				"shadowSide": null,
+				"lights": false
+			}
+		}
+	}
+}

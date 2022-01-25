@@ -1,0 +1,19 @@
+{
+	"properties": "1643124579589",
+	"root": "1643124579589",
+	"nodes": {
+		"geo1": "1643124579589",
+		"geo1/COP": "1643124579589",
+		"geo1/MAT": "1643124579589",
+		"geo1/MAT/meshPhysicalBuilder1": "1643124579589",
+		"geo1/MAT/meshPhysicalBuilder2": "1643124579589",
+		"geo1/MAT/meshPhysicalBuilder3": "1643124579589",
+		"perspectiveCamera1": "1643124579589",
+		"perspectiveCamera1/events1": "1643124579589",
+		"background": "1643124579589",
+		"background/MAT": "1643124579589",
+		"background/MAT/meshStandardBuilder1": "1643124579589",
+		"COP": "1643124579589",
+		"COP/builder1": "1643124579589"
+	}
+}

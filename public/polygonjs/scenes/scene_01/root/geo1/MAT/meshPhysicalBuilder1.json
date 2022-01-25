@@ -1,0 +1,720 @@
+{
+	"type": "meshPhysicalBuilder",
+	"nodes": {
+		"globals1": {
+			"type": "globals"
+		},
+		"output1": {
+			"type": "output",
+			"inputs": [
+				null,
+				null,
+				null,
+				null,
+				null,
+				null,
+				null,
+				null,
+				null,
+				null,
+				{
+					"index": 10,
+					"node": "luminance1",
+					"output": "lum"
+				}
+			]
+		},
+		"texture1": {
+			"type": "texture",
+			"params": {
+				"paramName": "texture1"
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"node": "globals1",
+					"output": "uv"
+				}
+			]
+		},
+		"vec4ToVec3_1": {
+			"type": "vec4ToVec3",
+			"inputs": [
+				{
+					"index": 0,
+					"node": "texture1",
+					"output": "rgba"
+				}
+			]
+		},
+		"vec3ToFloat1": {
+			"type": "vec3ToFloat"
+		},
+		"luminance1": {
+			"type": "luminance",
+			"inputs": [
+				{
+					"index": 0,
+					"node": "vec4ToVec3_1",
+					"output": "vec3"
+				}
+			]
+		}
+	},
+	"params": {
+		"metalness": 0,
+		"roughness": 0,
+		"transmission": 1,
+		"thickness": 1,
+		"attenuationDistance": 6.4,
+		"attenuationColor": [
+			0.13725490196078433,
+			0.6470588235294118,
+			0.07058823529411765
+		],
+		"texture1": {
+			"type": "node_path",
+			"default_value": "",
+			"options": {
+				"nodeSelection": {
+					"context": "cop"
+				},
+				"spare": true,
+				"computeOnDirty": true,
+				"cook": false,
+				"dependentOnFoundNode": true
+			},
+			"raw_input": "../../COP/webCam1"
+		}
+	},
+	"persisted_config": {
+		"material": {
+			"metadata": {
+				"version": 4.5,
+				"type": "Material",
+				"generator": "Material.toJSON"
+			},
+			"uuid": "/geo1/MAT/meshPhysicalBuilder1-main",
+			"type": "ShaderMaterial",
+			"name": "/geo1/MAT/meshPhysicalBuilder1",
+			"roughness": 0,
+			"metalness": 0,
+			"sheen": 0,
+			"specularTint": 16777215,
+			"clearcoat": 0,
+			"clearcoatRoughness": 0,
+			"envMapIntensity": 1,
+			"reflectivity": 0.5,
+			"refractionRatio": 0.98,
+			"transmission": 1,
+			"thickness": 1,
+			"attenuationDistance": 6.4,
+			"attenuationTint": 2336018,
+			"depthFunc": 3,
+			"depthTest": true,
+			"depthWrite": true,
+			"colorWrite": true,
+			"stencilWrite": false,
+			"stencilWriteMask": 255,
+			"stencilFunc": 519,
+			"stencilRef": 0,
+			"stencilFuncMask": 255,
+			"stencilFail": 7680,
+			"stencilZFail": 7680,
+			"stencilZPass": 7680,
+			"glslVersion": null,
+			"uniforms": {
+				"diffuse": {
+					"type": "c",
+					"value": 16777215
+				},
+				"opacity": {
+					"value": 1
+				},
+				"map": {
+					"value": null
+				},
+				"uvTransform": {
+					"type": "m3",
+					"value": [
+						1,
+						0,
+						0,
+						0,
+						1,
+						0,
+						0,
+						0,
+						1
+					]
+				},
+				"uv2Transform": {
+					"type": "m3",
+					"value": [
+						1,
+						0,
+						0,
+						0,
+						1,
+						0,
+						0,
+						0,
+						1
+					]
+				},
+				"alphaMap": {
+					"value": null
+				},
+				"alphaTest": {
+					"value": 0
+				},
+				"envMap": {
+					"value": null
+				},
+				"flipEnvMap": {
+					"value": -1
+				},
+				"reflectivity": {
+					"value": 0.5
+				},
+				"ior": {
+					"value": 1.5
+				},
+				"refractionRatio": {
+					"value": 0.98
+				},
+				"maxMipLevel": {
+					"value": 0
+				},
+				"aoMap": {
+					"value": null
+				},
+				"aoMapIntensity": {
+					"value": 1
+				},
+				"lightMap": {
+					"value": null
+				},
+				"lightMapIntensity": {
+					"value": 1
+				},
+				"emissiveMap": {
+					"value": null
+				},
+				"bumpMap": {
+					"value": null
+				},
+				"bumpScale": {
+					"value": 1
+				},
+				"normalMap": {
+					"value": null
+				},
+				"normalScale": {
+					"type": "v2",
+					"value": [
+						1,
+						1
+					]
+				},
+				"displacementMap": {
+					"value": null
+				},
+				"displacementScale": {
+					"value": 1
+				},
+				"displacementBias": {
+					"value": 0
+				},
+				"roughnessMap": {
+					"value": null
+				},
+				"metalnessMap": {
+					"value": null
+				},
+				"fogDensity": {
+					"value": 0.00025
+				},
+				"fogNear": {
+					"value": 1
+				},
+				"fogFar": {
+					"value": 2000
+				},
+				"fogColor": {
+					"type": "c",
+					"value": 16777215
+				},
+				"ambientLightColor": {
+					"value": [
+						0,
+						0,
+						0
+					]
+				},
+				"lightProbe": {
+					"value": [
+						{
+							"x": 0,
+							"y": 0,
+							"z": 0
+						},
+						{
+							"x": 0,
+							"y": 0,
+							"z": 0
+						},
+						{
+							"x": 0,
+							"y": 0,
+							"z": 0
+						},
+						{
+							"x": 0,
+							"y": 0,
+							"z": 0
+						},
+						{
+							"x": 0,
+							"y": 0,
+							"z": 0
+						},
+						{
+							"x": 0,
+							"y": 0,
+							"z": 0
+						},
+						{
+							"x": 0,
+							"y": 0,
+							"z": 0
+						},
+						{
+							"x": 0,
+							"y": 0,
+							"z": 0
+						},
+						{
+							"x": 0,
+							"y": 0,
+							"z": 0
+						}
+					]
+				},
+				"directionalLights": {
+					"value": []
+				},
+				"directionalLightShadows": {
+					"value": []
+				},
+				"directionalShadowMap": {
+					"value": []
+				},
+				"directionalShadowMatrix": {
+					"value": []
+				},
+				"spotLights": {
+					"value": [
+						{
+							"position": {
+								"x": -1.5396494766983122,
+								"y": 1.603855703840928,
+								"z": -1.08053569116957
+							},
+							"direction": {
+								"x": -0.11999472912948386,
+								"y": 0.12350712022642851,
+								"z": -0.9850620570474311
+							},
+							"color": 16777215,
+							"distance": 100,
+							"coneCos": 0.7071067811865476,
+							"penumbraCos": 0.7604059656000309,
+							"decay": 0.1
+						}
+					]
+				},
+				"spotLightShadows": {
+					"value": []
+				},
+				"spotShadowMap": {
+					"value": []
+				},
+				"spotShadowMatrix": {
+					"value": []
+				},
+				"pointLights": {
+					"value": []
+				},
+				"pointLightShadows": {
+					"value": []
+				},
+				"pointShadowMap": {
+					"value": []
+				},
+				"pointShadowMatrix": {
+					"value": []
+				},
+				"hemisphereLights": {
+					"value": [
+						{
+							"direction": {
+								"x": 3.4694469519536134e-18,
+								"y": 0.9922313964526814,
+								"z": 0.1244060122886426
+							},
+							"skyColor": 16777215,
+							"groundColor": 0
+						}
+					]
+				},
+				"rectAreaLights": {
+					"value": []
+				},
+				"ltc_1": {
+					"value": null
+				},
+				"ltc_2": {
+					"value": null
+				},
+				"emissive": {
+					"type": "c",
+					"value": 0
+				},
+				"roughness": {
+					"value": 0
+				},
+				"metalness": {
+					"value": 0
+				},
+				"envMapIntensity": {
+					"value": 1
+				},
+				"clearcoat": {
+					"value": 0
+				},
+				"clearcoatMap": {
+					"value": null
+				},
+				"clearcoatRoughness": {
+					"value": 0
+				},
+				"clearcoatRoughnessMap": {
+					"value": null
+				},
+				"clearcoatNormalScale": {
+					"type": "v2",
+					"value": [
+						1,
+						1
+					]
+				},
+				"clearcoatNormalMap": {
+					"value": null
+				},
+				"sheen": {
+					"value": 0
+				},
+				"sheenTint": {
+					"type": "c",
+					"value": 0
+				},
+				"sheenRoughness": {
+					"value": 0
+				},
+				"transmission": {
+					"value": 1
+				},
+				"transmissionMap": {
+					"value": null
+				},
+				"transmissionSamplerSize": {
+					"type": "v2",
+					"value": [
+						1024,
+						1024
+					]
+				},
+				"transmissionSamplerMap": {
+					"value": null
+				},
+				"thickness": {
+					"value": 1
+				},
+				"thicknessMap": {
+					"value": null
+				},
+				"attenuationDistance": {
+					"value": 6.4
+				},
+				"attenuationTint": {
+					"type": "c",
+					"value": 2336018
+				},
+				"specularIntensity": {},
+				"specularIntensityMap": {
+					"value": null
+				},
+				"specularTint": {
+					"type": "c",
+					"value": 16777215
+				},
+				"specularTintMap": {
+					"value": null
+				},
+				"v_POLY_texture1_texture1": {
+					"value": null
+				}
+			},
+			"defines": {
+				"PHYSICAL": true
+			},
+			"vertexShader": "\n#define STANDARD\n\nvarying vec3 vViewPosition;\n\n#ifdef USE_TRANSMISSION\n\n\tvarying vec3 vWorldPosition;\n\n#endif\n\n#include <common>\n\n\n\n// /geo1/MAT/meshPhysicalBuilder1/globals1\nvarying vec2 v_POLY_globals1_uv;\n\n\n\n\n#include <uv_pars_vertex>\n#include <uv2_pars_vertex>\n#include <displacementmap_pars_vertex>\n#include <color_pars_vertex>\n#include <fog_pars_vertex>\n#include <normal_pars_vertex>\n#include <morphtarget_pars_vertex>\n#include <skinning_pars_vertex>\n#include <shadowmap_pars_vertex>\n#include <logdepthbuf_pars_vertex>\n#include <clipping_planes_pars_vertex>\n\nvoid main() {\n\n\t#include <uv_vertex>\n\t#include <uv2_vertex>\n\t#include <color_vertex>\n\n\n\n\t// /geo1/MAT/meshPhysicalBuilder1/globals1\n\tv_POLY_globals1_uv = vec2(uv);\n\t\n\t// /geo1/MAT/meshPhysicalBuilder1/output1\n\tvec3 transformed = position;\n\tvec3 objectNormal = normal;\n\t#ifdef USE_TANGENT\n\t\tvec3 objectTangent = vec3( tangent.xyz );\n\t#endif\n\n\n\n\n// removed:\n//\t#include <beginnormal_vertex>\n\t#include <morphnormal_vertex>\n\t#include <skinbase_vertex>\n\t#include <skinnormal_vertex>\n\t#include <defaultnormal_vertex>\n\t#include <normal_vertex>\n\n// removed:\n//\t#include <begin_vertex>\n\t#include <morphtarget_vertex>\n\t#include <skinning_vertex>\n\t#include <displacementmap_vertex>\n\t#include <project_vertex>\n\t#include <logdepthbuf_vertex>\n\t#include <clipping_planes_vertex>\n\n\tvViewPosition = - mvPosition.xyz;\n\n\t#include <worldpos_vertex>\n\t#include <shadowmap_vertex>\n\t#include <fog_vertex>\n\n#ifdef USE_TRANSMISSION\n\n\tvWorldPosition = worldPosition.xyz;\n\n#endif\n}\n",
+			"fragmentShader": "\n#define STANDARD\n\n#ifdef PHYSICAL\n\t#define IOR\n\t#define SPECULAR\n#endif\n\nuniform vec3 diffuse;\nuniform vec3 emissive;\nuniform float roughness;\nuniform float metalness;\nuniform float opacity;\n\n#ifdef IOR\n\tuniform float ior;\n#endif\n\n#ifdef SPECULAR\n\tuniform float specularIntensity;\n\tuniform vec3 specularTint;\n\n\t#ifdef USE_SPECULARINTENSITYMAP\n\t\tuniform sampler2D specularIntensityMap;\n\t#endif\n\n\t#ifdef USE_SPECULARTINTMAP\n\t\tuniform sampler2D specularTintMap;\n\t#endif\n#endif\n\n#ifdef USE_CLEARCOAT\n\tuniform float clearcoat;\n\tuniform float clearcoatRoughness;\n#endif\n\n#ifdef USE_SHEEN\n\tuniform vec3 sheenTint;\n\tuniform float sheenRoughness;\n#endif\n\nvarying vec3 vViewPosition;\n\n#include <common>\n\n\n\n// /geo1/MAT/meshPhysicalBuilder1/texture1\nuniform sampler2D v_POLY_texture1_texture1;\n\n// /geo1/MAT/meshPhysicalBuilder1/globals1\nvarying vec2 v_POLY_globals1_uv;\n\n\n\n\n#include <packing>\n#include <dithering_pars_fragment>\n#include <color_pars_fragment>\n#include <uv_pars_fragment>\n#include <uv2_pars_fragment>\n#include <map_pars_fragment>\n#include <alphamap_pars_fragment>\n#include <alphatest_pars_fragment>\n#include <aomap_pars_fragment>\n#include <lightmap_pars_fragment>\n#include <emissivemap_pars_fragment>\n#include <bsdfs>\n#include <cube_uv_reflection_fragment>\n#include <envmap_common_pars_fragment>\n#include <envmap_physical_pars_fragment>\n#include <fog_pars_fragment>\n#include <lights_pars_begin>\n#include <normal_pars_fragment>\n#include <lights_physical_pars_fragment>\n#include <transmission_pars_fragment>\n#include <shadowmap_pars_fragment>\n#include <bumpmap_pars_fragment>\n#include <normalmap_pars_fragment>\n#include <clearcoat_pars_fragment>\n#include <roughnessmap_pars_fragment>\n#include <metalnessmap_pars_fragment>\n#include <logdepthbuf_pars_fragment>\n#include <clipping_planes_pars_fragment>\n\nstruct SSSModel {\n\tbool isActive;\n\tvec3 color;\n\tfloat thickness;\n\tfloat power;\n\tfloat scale;\n\tfloat distortion;\n\tfloat ambient;\n\tfloat attenuation;\n};\n\nvoid RE_Direct_Scattering(\n\tconst in IncidentLight directLight,\n\tconst in GeometricContext geometry,\n\tconst in SSSModel sssModel,\n\tinout ReflectedLight reflectedLight\n\t){\n\tvec3 scatteringHalf = normalize(directLight.direction + (geometry.normal * sssModel.distortion));\n\tfloat scatteringDot = pow(saturate(dot(geometry.viewDir, -scatteringHalf)), sssModel.power) * sssModel.scale;\n\tvec3 scatteringIllu = (scatteringDot + sssModel.ambient) * (sssModel.color * (1.0-sssModel.thickness));\n\treflectedLight.directDiffuse += scatteringIllu * sssModel.attenuation * directLight.color;\n}\n\nvoid main() {\n\n\t#include <clipping_planes_fragment>\n\n\tvec4 diffuseColor = vec4( diffuse, opacity );\n\n\n\n\t// /geo1/MAT/meshPhysicalBuilder1/texture1\n\tvec4 v_POLY_texture1_rgba = texture2D(v_POLY_texture1_texture1, v_POLY_globals1_uv);\n\t\n\t// /geo1/MAT/meshPhysicalBuilder1/vec4ToVec3_1\n\tvec3 v_POLY_vec4ToVec3_1_vec3 = v_POLY_texture1_rgba.xyz;\n\t\n\t// /geo1/MAT/meshPhysicalBuilder1/luminance1\n\tfloat v_POLY_luminance1_lum = linearToRelativeLuminance(v_POLY_vec4ToVec3_1_vec3);\n\t\n\t// /geo1/MAT/meshPhysicalBuilder1/output1\n\tfloat POLY_metalness = 1.0;\n\tfloat POLY_roughness = 1.0;\n\tvec3 POLY_emissive = vec3(1.0, 1.0, 1.0);\n\tSSSModel POLY_SSSModel = SSSModel(/*isActive*/false,/*color*/vec3(1.0, 1.0, 1.0), /*thickness*/0.1, /*power*/2.0, /*scale*/16.0, /*distortion*/0.1,/*ambient*/0.4,/*attenuation*/0.8 );\n\tfloat POLY_transmission = 1.0;\n\tfloat POLY_thickness = v_POLY_luminance1_lum;\n\n\n\n\tReflectedLight reflectedLight = ReflectedLight( vec3( 0.0 ), vec3( 0.0 ), vec3( 0.0 ), vec3( 0.0 ) );\n\tvec3 totalEmissiveRadiance = emissive * POLY_emissive;\n\n\t#include <logdepthbuf_fragment>\n\t#include <map_fragment>\n\t#include <color_fragment>\n\t#include <alphamap_fragment>\n\t#include <alphatest_fragment>\n\tfloat roughnessFactor = roughness * POLY_roughness;\n\n#ifdef USE_ROUGHNESSMAP\n\n\tvec4 texelRoughness = texture2D( roughnessMap, vUv );\n\n\t// reads channel G, compatible with a combined OcclusionRoughnessMetallic (RGB) texture\n\troughnessFactor *= texelRoughness.g;\n\n#endif\n\n\tfloat metalnessFactor = metalness * POLY_metalness;\n\n#ifdef USE_METALNESSMAP\n\n\tvec4 texelMetalness = texture2D( metalnessMap, vUv );\n\n\t// reads channel B, compatible with a combined OcclusionRoughnessMetallic (RGB) texture\n\tmetalnessFactor *= texelMetalness.b;\n\n#endif\n\n\t#include <normal_fragment_begin>\n\t#include <normal_fragment_maps>\n\t#include <clearcoat_normal_fragment_begin>\n\t#include <clearcoat_normal_fragment_maps>\n\t#include <emissivemap_fragment>\n\n\t// accumulation\n\t#include <lights_physical_fragment>\n\t#include <lights_fragment_begin>\nif(POLY_SSSModel.isActive){\n\tRE_Direct_Scattering(directLight, geometry, POLY_SSSModel, reflectedLight);\n}\n\n\n\t#include <lights_fragment_maps>\n\t#include <lights_fragment_end>\n\n\t// modulation\n\t#include <aomap_fragment>\n\n\tvec3 totalDiffuse = reflectedLight.directDiffuse + reflectedLight.indirectDiffuse;\n\tvec3 totalSpecular = reflectedLight.directSpecular + reflectedLight.indirectSpecular;\n\n\t\n#ifdef USE_TRANSMISSION\n\n\tfloat transmissionAlpha = 1.0;\nfloat transmissionFactor = transmission * POLY_transmission;\nfloat thicknessFactor = thickness * POLY_thickness;\n\n\t#ifdef USE_TRANSMISSIONMAP\n\n\t\ttransmissionFactor *= texture2D( transmissionMap, vUv ).r;\n\n\t#endif\n\n\t#ifdef USE_THICKNESSMAP\n\n\t\tthicknessFactor *= texture2D( thicknessMap, vUv ).g;\n\n\t#endif\n\n\tvec3 pos = vWorldPosition;\n\tvec3 v = normalize( cameraPosition - pos );\n\tvec3 n = inverseTransformDirection( normal, viewMatrix );\n\n\tvec4 transmission = getIBLVolumeRefraction(\n\t\tn, v, roughnessFactor, material.diffuseColor, material.specularColor, material.specularF90,\n\t\tpos, modelMatrix, viewMatrix, projectionMatrix, ior, thicknessFactor,\n\t\tattenuationTint, attenuationDistance );\n\n\ttotalDiffuse = mix( totalDiffuse, transmission.rgb, transmissionFactor );\n\ttransmissionAlpha = mix( transmissionAlpha, transmission.a, transmissionFactor );\n#endif\n\n\n\tvec3 outgoingLight = totalDiffuse + totalSpecular + totalEmissiveRadiance;\n\n\t#ifdef USE_CLEARCOAT\n\n\t\tfloat dotNVcc = saturate( dot( geometry.clearcoatNormal, geometry.viewDir ) );\n\n\t\tvec3 Fcc = F_Schlick( material.clearcoatF0, material.clearcoatF90, dotNVcc );\n\n\t\toutgoingLight = outgoingLight * ( 1.0 - clearcoat * Fcc ) + clearcoatSpecular * clearcoat;\n\n\t#endif\n\n\t#include <output_fragment>\n\t#include <tonemapping_fragment>\n\t#include <encodings_fragment>\n\t#include <fog_fragment>\n\t#include <premultiplied_alpha_fragment>\n\t#include <dithering_fragment>\n\n}\n",
+			"extensions": {
+				"derivatives": true
+			},
+			"shadowSide": null,
+			"lights": true
+		},
+		"uniforms_time_dependent": false,
+		"uniforms_resolution_dependent": false,
+		"param_uniform_pairs": [
+			[
+				"texture1",
+				"v_POLY_texture1_texture1"
+			]
+		],
+		"customMaterials": {
+			"customDistanceMaterial": {
+				"metadata": {
+					"version": 4.5,
+					"type": "Material",
+					"generator": "Material.toJSON"
+				},
+				"uuid": "/geo1/MAT/meshPhysicalBuilder1-customDistanceMaterial",
+				"type": "ShaderMaterial",
+				"name": "customDistanceMaterial",
+				"depthFunc": 3,
+				"depthTest": true,
+				"depthWrite": true,
+				"colorWrite": true,
+				"stencilWrite": false,
+				"stencilWriteMask": 255,
+				"stencilFunc": 519,
+				"stencilRef": 0,
+				"stencilFuncMask": 255,
+				"stencilFail": 7680,
+				"stencilZFail": 7680,
+				"stencilZPass": 7680,
+				"glslVersion": null,
+				"uniforms": {
+					"diffuse": {
+						"type": "c",
+						"value": 16777215
+					},
+					"opacity": {
+						"value": 1
+					},
+					"map": {
+						"value": null
+					},
+					"uvTransform": {
+						"type": "m3",
+						"value": [
+							1,
+							0,
+							0,
+							0,
+							1,
+							0,
+							0,
+							0,
+							1
+						]
+					},
+					"uv2Transform": {
+						"type": "m3",
+						"value": [
+							1,
+							0,
+							0,
+							0,
+							1,
+							0,
+							0,
+							0,
+							1
+						]
+					},
+					"alphaMap": {
+						"value": null
+					},
+					"alphaTest": {
+						"value": 0
+					},
+					"displacementMap": {
+						"value": null
+					},
+					"displacementScale": {
+						"value": 1
+					},
+					"displacementBias": {
+						"value": 0
+					},
+					"referencePosition": {
+						"type": "v3",
+						"value": [
+							0,
+							0,
+							0
+						]
+					},
+					"nearDistance": {
+						"value": 1
+					},
+					"farDistance": {
+						"value": 1000
+					},
+					"v_POLY_texture1_texture1": {
+						"value": null
+					}
+				},
+				"defines": {
+					"DEPTH_PACKING": 3201
+				},
+				"vertexShader": "\n#define DISTANCE\n\nvarying vec3 vWorldPosition;\n\n#include <common>\n\n\n\n// /geo1/MAT/meshPhysicalBuilder1/globals1\nvarying vec2 v_POLY_globals1_uv;\n\n\n\n\n#include <uv_pars_vertex>\n#include <displacementmap_pars_vertex>\n#include <morphtarget_pars_vertex>\n#include <skinning_pars_vertex>\n#include <clipping_planes_pars_vertex>\n\nvoid main() {\n\n\t#include <uv_vertex>\n\n\t#include <skinbase_vertex>\n\n\t#ifdef USE_DISPLACEMENTMAP\n\n// removed:\n//\t\t#include <beginnormal_vertex>\n\t\t#include <morphnormal_vertex>\n\t\t#include <skinnormal_vertex>\n\n\t#endif\n\n// removed:\n//\t#include <begin_vertex>\n\n\n\n\t// /geo1/MAT/meshPhysicalBuilder1/globals1\n\tv_POLY_globals1_uv = vec2(uv);\n\t\n\t// /geo1/MAT/meshPhysicalBuilder1/output1\n\tvec3 transformed = position;\n\tvec3 objectNormal = normal;\n\t#ifdef USE_TANGENT\n\t\tvec3 objectTangent = vec3( tangent.xyz );\n\t#endif\n\n\n\n\t#include <morphtarget_vertex>\n\t#include <skinning_vertex>\n\t#include <displacementmap_vertex>\n\t#include <project_vertex>\n\t#include <worldpos_vertex>\n\t#include <clipping_planes_vertex>\n\n\tvWorldPosition = worldPosition.xyz;\n\n}\n",
+				"fragmentShader": "\n#define DISTANCE\n\nuniform vec3 referencePosition;\nuniform float nearDistance;\nuniform float farDistance;\nvarying vec3 vWorldPosition;\n\n#include <common>\n\n\n\n// /geo1/MAT/meshPhysicalBuilder1/texture1\nuniform sampler2D v_POLY_texture1_texture1;\n\n// /geo1/MAT/meshPhysicalBuilder1/globals1\nvarying vec2 v_POLY_globals1_uv;\n\n\n\n\n#include <packing>\n#include <uv_pars_fragment>\n#include <map_pars_fragment>\n#include <alphamap_pars_fragment>\n#include <alphatest_pars_fragment>\n#include <clipping_planes_pars_fragment>\n\nstruct SSSModel {\n\tbool isActive;\n\tvec3 color;\n\tfloat thickness;\n\tfloat power;\n\tfloat scale;\n\tfloat distortion;\n\tfloat ambient;\n\tfloat attenuation;\n};\n\nvoid RE_Direct_Scattering(\n\tconst in IncidentLight directLight,\n\tconst in GeometricContext geometry,\n\tconst in SSSModel sssModel,\n\tinout ReflectedLight reflectedLight\n\t){\n\tvec3 scatteringHalf = normalize(directLight.direction + (geometry.normal * sssModel.distortion));\n\tfloat scatteringDot = pow(saturate(dot(geometry.viewDir, -scatteringHalf)), sssModel.power) * sssModel.scale;\n\tvec3 scatteringIllu = (scatteringDot + sssModel.ambient) * (sssModel.color * (1.0-sssModel.thickness));\n\treflectedLight.directDiffuse += scatteringIllu * sssModel.attenuation * directLight.color;\n}\n\nvoid main() {\n\n\t#include <clipping_planes_fragment>\n\n\tvec4 diffuseColor = vec4( 1.0 );\n\n\t#include <map_fragment>\n\t#include <alphamap_fragment>\n\t#include <alphatest_fragment>\n\n\tfloat dist = length( vWorldPosition - referencePosition );\n\tdist = ( dist - nearDistance ) / ( farDistance - nearDistance );\n\tdist = saturate( dist ); // clamp to [ 0, 1 ]\n\n\tgl_FragColor = packDepthToRGBA( dist );\n\n\t// INSERT BODY\n\n\n\n\t// /geo1/MAT/meshPhysicalBuilder1/texture1\n\tvec4 v_POLY_texture1_rgba = texture2D(v_POLY_texture1_texture1, v_POLY_globals1_uv);\n\t\n\t// /geo1/MAT/meshPhysicalBuilder1/vec4ToVec3_1\n\tvec3 v_POLY_vec4ToVec3_1_vec3 = v_POLY_texture1_rgba.xyz;\n\t\n\t// /geo1/MAT/meshPhysicalBuilder1/luminance1\n\tfloat v_POLY_luminance1_lum = linearToRelativeLuminance(v_POLY_vec4ToVec3_1_vec3);\n\t\n\t// /geo1/MAT/meshPhysicalBuilder1/output1\n\tfloat POLY_metalness = 1.0;\n\tfloat POLY_roughness = 1.0;\n\tvec3 POLY_emissive = vec3(1.0, 1.0, 1.0);\n\tSSSModel POLY_SSSModel = SSSModel(/*isActive*/false,/*color*/vec3(1.0, 1.0, 1.0), /*thickness*/0.1, /*power*/2.0, /*scale*/16.0, /*distortion*/0.1,/*ambient*/0.4,/*attenuation*/0.8 );\n\tfloat POLY_transmission = 1.0;\n\tfloat POLY_thickness = v_POLY_luminance1_lum;\n\n\n\n\n\t// all this shader above the INSERT BODY line\n\t// is copied from the threejs ShaderLib.depth template fragment shader.\n\t// The line below is necessary to tie the alpha to the one that is computed by the gl nodes.\n\t// I'm not entirely sure why I need to negate diffuseColor.a with '1.0 -'\n\t// but it seems to be what make the shader match the alpha of the main material.\n\tgl_FragColor.a = 1.0 - diffuseColor.a;\n\n}\n",
+				"shadowSide": null,
+				"lights": false
+			},
+			"customDepthMaterial": {
+				"metadata": {
+					"version": 4.5,
+					"type": "Material",
+					"generator": "Material.toJSON"
+				},
+				"uuid": "/geo1/MAT/meshPhysicalBuilder1-customDepthMaterial",
+				"type": "ShaderMaterial",
+				"name": "customDepthMaterial",
+				"depthFunc": 3,
+				"depthTest": true,
+				"depthWrite": true,
+				"colorWrite": true,
+				"stencilWrite": false,
+				"stencilWriteMask": 255,
+				"stencilFunc": 519,
+				"stencilRef": 0,
+				"stencilFuncMask": 255,
+				"stencilFail": 7680,
+				"stencilZFail": 7680,
+				"stencilZPass": 7680,
+				"glslVersion": null,
+				"uniforms": {
+					"diffuse": {
+						"type": "c",
+						"value": 16777215
+					},
+					"opacity": {
+						"value": 1
+					},
+					"map": {
+						"value": null
+					},
+					"uvTransform": {
+						"type": "m3",
+						"value": [
+							1,
+							0,
+							0,
+							0,
+							1,
+							0,
+							0,
+							0,
+							1
+						]
+					},
+					"uv2Transform": {
+						"type": "m3",
+						"value": [
+							1,
+							0,
+							0,
+							0,
+							1,
+							0,
+							0,
+							0,
+							1
+						]
+					},
+					"alphaMap": {
+						"value": null
+					},
+					"alphaTest": {
+						"value": 0
+					},
+					"displacementMap": {
+						"value": null
+					},
+					"displacementScale": {
+						"value": 1
+					},
+					"displacementBias": {
+						"value": 0
+					},
+					"v_POLY_texture1_texture1": {
+						"value": null
+					}
+				},
+				"defines": {
+					"DEPTH_PACKING": 3201
+				},
+				"vertexShader": "\n#include <common>\n\n\n\n// /geo1/MAT/meshPhysicalBuilder1/globals1\nvarying vec2 v_POLY_globals1_uv;\n\n\n\n\n#include <uv_pars_vertex>\n#include <displacementmap_pars_vertex>\n#include <morphtarget_pars_vertex>\n#include <skinning_pars_vertex>\n#include <logdepthbuf_pars_vertex>\n#include <clipping_planes_pars_vertex>\n\n// This is used for computing an equivalent of gl_FragCoord.z that is as high precision as possible.\n// Some platforms compute gl_FragCoord at a lower precision which makes the manually computed value better for\n// depth-based postprocessing effects. Reproduced on iPad with A10 processor / iPadOS 13.3.1.\nvarying vec2 vHighPrecisionZW;\n\nvoid main() {\n\n\t#include <uv_vertex>\n\n\t#include <skinbase_vertex>\n\n\t#ifdef USE_DISPLACEMENTMAP\n\n// removed:\n//\t\t#include <beginnormal_vertex>\n\t\t#include <morphnormal_vertex>\n\t\t#include <skinnormal_vertex>\n\n\t#endif\n\n// removed:\n//\t#include <begin_vertex>\n\n\n\n\t// /geo1/MAT/meshPhysicalBuilder1/globals1\n\tv_POLY_globals1_uv = vec2(uv);\n\t\n\t// /geo1/MAT/meshPhysicalBuilder1/output1\n\tvec3 transformed = position;\n\tvec3 objectNormal = normal;\n\t#ifdef USE_TANGENT\n\t\tvec3 objectTangent = vec3( tangent.xyz );\n\t#endif\n\n\n\n\t#include <morphtarget_vertex>\n\t#include <skinning_vertex>\n\t#include <displacementmap_vertex>\n\t#include <project_vertex>\n\t#include <logdepthbuf_vertex>\n\t#include <clipping_planes_vertex>\n\n\tvHighPrecisionZW = gl_Position.zw;\n\n}\n",
+				"fragmentShader": "// INSERT DEFINES\n\n\n#if DEPTH_PACKING == 3200\n\n\tuniform float opacity;\n\n#endif\n\n#include <common>\n\n\n\n// /geo1/MAT/meshPhysicalBuilder1/texture1\nuniform sampler2D v_POLY_texture1_texture1;\n\n// /geo1/MAT/meshPhysicalBuilder1/globals1\nvarying vec2 v_POLY_globals1_uv;\n\n\n\n\n#include <packing>\n#include <uv_pars_fragment>\n#include <map_pars_fragment>\n#include <alphamap_pars_fragment>\n#include <alphatest_pars_fragment>\n#include <logdepthbuf_pars_fragment>\n#include <clipping_planes_pars_fragment>\n\nvarying vec2 vHighPrecisionZW;\n\nstruct SSSModel {\n\tbool isActive;\n\tvec3 color;\n\tfloat thickness;\n\tfloat power;\n\tfloat scale;\n\tfloat distortion;\n\tfloat ambient;\n\tfloat attenuation;\n};\n\nvoid RE_Direct_Scattering(\n\tconst in IncidentLight directLight,\n\tconst in GeometricContext geometry,\n\tconst in SSSModel sssModel,\n\tinout ReflectedLight reflectedLight\n\t){\n\tvec3 scatteringHalf = normalize(directLight.direction + (geometry.normal * sssModel.distortion));\n\tfloat scatteringDot = pow(saturate(dot(geometry.viewDir, -scatteringHalf)), sssModel.power) * sssModel.scale;\n\tvec3 scatteringIllu = (scatteringDot + sssModel.ambient) * (sssModel.color * (1.0-sssModel.thickness));\n\treflectedLight.directDiffuse += scatteringIllu * sssModel.attenuation * directLight.color;\n}\n\nvoid main() {\n\n\t#include <clipping_planes_fragment>\n\n\tvec4 diffuseColor = vec4( 1.0 );\n\n\t#if DEPTH_PACKING == 3200\n\n\t\tdiffuseColor.a = opacity;\n\n\t#endif\n\n\t#include <map_fragment>\n\t#include <alphamap_fragment>\n\t#include <alphatest_fragment>\n\n\t#include <logdepthbuf_fragment>\n\n\t// Higher precision equivalent of gl_FragCoord.z. This assumes depthRange has been left to its default values.\n\tfloat fragCoordZ = 0.5 * vHighPrecisionZW[0] / vHighPrecisionZW[1] + 0.5;\n\n\t#if DEPTH_PACKING == 3200\n\n\t\tgl_FragColor = vec4( vec3( 1.0 - fragCoordZ ), opacity );\n\n\t#elif DEPTH_PACKING == 3201\n\n\t\tgl_FragColor = packDepthToRGBA( fragCoordZ );\n\n\t#endif\n\n\t// INSERT BODY\n\n\n\n\t// /geo1/MAT/meshPhysicalBuilder1/texture1\n\tvec4 v_POLY_texture1_rgba = texture2D(v_POLY_texture1_texture1, v_POLY_globals1_uv);\n\t\n\t// /geo1/MAT/meshPhysicalBuilder1/vec4ToVec3_1\n\tvec3 v_POLY_vec4ToVec3_1_vec3 = v_POLY_texture1_rgba.xyz;\n\t\n\t// /geo1/MAT/meshPhysicalBuilder1/luminance1\n\tfloat v_POLY_luminance1_lum = linearToRelativeLuminance(v_POLY_vec4ToVec3_1_vec3);\n\t\n\t// /geo1/MAT/meshPhysicalBuilder1/output1\n\tfloat POLY_metalness = 1.0;\n\tfloat POLY_roughness = 1.0;\n\tvec3 POLY_emissive = vec3(1.0, 1.0, 1.0);\n\tSSSModel POLY_SSSModel = SSSModel(/*isActive*/false,/*color*/vec3(1.0, 1.0, 1.0), /*thickness*/0.1, /*power*/2.0, /*scale*/16.0, /*distortion*/0.1,/*ambient*/0.4,/*attenuation*/0.8 );\n\tfloat POLY_transmission = 1.0;\n\tfloat POLY_thickness = v_POLY_luminance1_lum;\n\n\n\n\n\t// all this shader above the INSERT BODY line\n\t// is copied from the threejs ShaderLib.depth template fragment shader.\n\t// The line below is necessary to tie the alpha to the one that is computed by the gl nodes.\n\t// I'm not entirely sure why I need to negate diffuseColor.a with '1.0 -'\n\t// but it seems to be what make the shader match the alpha of the main material.\n\tgl_FragColor.a = 1.0 - diffuseColor.a;\n\n}\n",
+				"shadowSide": null,
+				"lights": false
+			},
+			"customDepthDOFMaterial": {
+				"metadata": {
+					"version": 4.5,
+					"type": "Material",
+					"generator": "Material.toJSON"
+				},
+				"uuid": "/geo1/MAT/meshPhysicalBuilder1-customDepthDOFMaterial",
+				"type": "ShaderMaterial",
+				"name": "customDepthDOFMaterial",
+				"transparent": true,
+				"depthFunc": 3,
+				"depthTest": true,
+				"depthWrite": true,
+				"colorWrite": true,
+				"stencilWrite": false,
+				"stencilWriteMask": 255,
+				"stencilFunc": 519,
+				"stencilRef": 0,
+				"stencilFuncMask": 255,
+				"stencilFail": 7680,
+				"stencilZFail": 7680,
+				"stencilZPass": 7680,
+				"glslVersion": null,
+				"uniforms": {
+					"mNear": {
+						"value": 0
+					},
+					"mFar": {
+						"value": 10
+					},
+					"v_POLY_texture1_texture1": {
+						"value": null
+					}
+				},
+				"vertexShader": "#include <common>\n\nvarying float vViewZDepth;\n\n// INSERT DEFINES\n\n\n\n// /geo1/MAT/meshPhysicalBuilder1/globals1\nvarying vec2 v_POLY_globals1_uv;\n\n\n\n\n\n\n\nvoid main() {\n\n\t// INSERT BODY\n\n\n\n\t// /geo1/MAT/meshPhysicalBuilder1/globals1\n\tv_POLY_globals1_uv = vec2(uv);\n\t\n\t// /geo1/MAT/meshPhysicalBuilder1/output1\n\tvec3 transformed = position;\n\tvec3 objectNormal = normal;\n\t#ifdef USE_TANGENT\n\t\tvec3 objectTangent = vec3( tangent.xyz );\n\t#endif\n\n\n\n\n\n\t#include <project_vertex>\n\n\tvViewZDepth = - mvPosition.z;\n}",
+				"fragmentShader": "uniform float mNear;\nuniform float mFar;\n\nvarying float vViewZDepth;\n\n// INSERT DEFINES\n\n\n\n// /geo1/MAT/meshPhysicalBuilder1/texture1\nuniform sampler2D v_POLY_texture1_texture1;\n\n// /geo1/MAT/meshPhysicalBuilder1/globals1\nvarying vec2 v_POLY_globals1_uv;\n\n\n\n\n\nstruct SSSModel {\n\tbool isActive;\n\tvec3 color;\n\tfloat thickness;\n\tfloat power;\n\tfloat scale;\n\tfloat distortion;\n\tfloat ambient;\n\tfloat attenuation;\n};\n\nvoid RE_Direct_Scattering(\n\tconst in IncidentLight directLight,\n\tconst in GeometricContext geometry,\n\tconst in SSSModel sssModel,\n\tinout ReflectedLight reflectedLight\n\t){\n\tvec3 scatteringHalf = normalize(directLight.direction + (geometry.normal * sssModel.distortion));\n\tfloat scatteringDot = pow(saturate(dot(geometry.viewDir, -scatteringHalf)), sssModel.power) * sssModel.scale;\n\tvec3 scatteringIllu = (scatteringDot + sssModel.ambient) * (sssModel.color * (1.0-sssModel.thickness));\n\treflectedLight.directDiffuse += scatteringIllu * sssModel.attenuation * directLight.color;\n}\n\nvoid main() {\n\n\tfloat color = 1.0 - smoothstep( mNear, mFar, vViewZDepth );\n\tgl_FragColor = vec4( vec3( color ), 1.0 );\n\tvec4 diffuseColor = gl_FragColor;\n\n\t// INSERT BODY\n\n\n\n\t// /geo1/MAT/meshPhysicalBuilder1/texture1\n\tvec4 v_POLY_texture1_rgba = texture2D(v_POLY_texture1_texture1, v_POLY_globals1_uv);\n\t\n\t// /geo1/MAT/meshPhysicalBuilder1/vec4ToVec3_1\n\tvec3 v_POLY_vec4ToVec3_1_vec3 = v_POLY_texture1_rgba.xyz;\n\t\n\t// /geo1/MAT/meshPhysicalBuilder1/luminance1\n\tfloat v_POLY_luminance1_lum = linearToRelativeLuminance(v_POLY_vec4ToVec3_1_vec3);\n\t\n\t// /geo1/MAT/meshPhysicalBuilder1/output1\n\tfloat POLY_metalness = 1.0;\n\tfloat POLY_roughness = 1.0;\n\tvec3 POLY_emissive = vec3(1.0, 1.0, 1.0);\n\tSSSModel POLY_SSSModel = SSSModel(/*isActive*/false,/*color*/vec3(1.0, 1.0, 1.0), /*thickness*/0.1, /*power*/2.0, /*scale*/16.0, /*distortion*/0.1,/*ambient*/0.4,/*attenuation*/0.8 );\n\tfloat POLY_transmission = 1.0;\n\tfloat POLY_thickness = v_POLY_luminance1_lum;\n\n\n\n\n\tgl_FragColor.a = diffuseColor.a;\n}\n",
+				"shadowSide": null,
+				"lights": false
+			}
+		}
+	}
+}

@@ -1,0 +1,16 @@
+{
+	"type": "materialsNetwork",
+	"nodes": {
+		"meshBasic1": {
+			"type": "meshBasic",
+			"params": {
+				"useMap": 1,
+				"map": "../../../COP/builder1",
+				"front": 0
+			}
+		}
+	},
+	"selection": [
+		"meshBasic1"
+	]
+}
