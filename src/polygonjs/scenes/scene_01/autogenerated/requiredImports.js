@@ -2,7 +2,7 @@
 // cop
 import {BuilderCopNode} from '@polygonjs/polygonjs/dist/src/engine/nodes/cop/Builder';
 import {EnvMapCopNode} from '@polygonjs/polygonjs/dist/src/engine/nodes/cop/EnvMap';
-import {ImageCopNode} from '@polygonjs/polygonjs/dist/src/engine/nodes/cop/Image';
+import {ImageEXRCopNode} from '@polygonjs/polygonjs/dist/src/engine/nodes/cop/ImageEXR';
 import {WebCamCopNode} from '@polygonjs/polygonjs/dist/src/engine/nodes/cop/WebCam';
 // event
 import {CameraOrbitControlsEventNode} from '@polygonjs/polygonjs/dist/src/engine/nodes/event/CameraOrbitControls';
@@ -34,7 +34,7 @@ export const requiredImports_scene_01 = {
 	nodes: [
 		BuilderCopNode,
 		EnvMapCopNode,
-		ImageCopNode,
+		ImageEXRCopNode,
 		WebCamCopNode,
 		CameraOrbitControlsEventNode,
 		MeshBasicMatNode,

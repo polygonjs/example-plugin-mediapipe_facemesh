@@ -2,7 +2,7 @@
 	"type": "copNetwork",
 	"nodes": {
 		"image1": {
-			"type": "image",
+			"type": "imageEXR",
 			"params": {
 				"url": "https://raw.githubusercontent.com/polygonjs/polygonjs-assets/master/textures/piz_compressed.exr"
 			}
